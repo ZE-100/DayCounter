@@ -1,0 +1,12 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+
+
+    <!--Settings Menu-->
+        <!--Settings Buttons-->
+    <dimen name="settings_button_height">20sp</dimen>
+    <dimen name="settings_button_width">20sp</dimen>
+
+    <dimen name="settings_button_text_size">20sp</dimen>
+
+</resources>

@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">DayCounter</string>
+
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="fragment_start_label">Start Fragment</string>
+    <string name="fragment_counters_label">Counters Fragment</string>
+    <string name="fragment_settings_label">Settings Fragment</string>
+
+    <!--String for buttons-->
+    <string name="goto_other_counters_text">Counters</string>
+    <string name="goto_settings_text">Settings</string>
+    <string name="goto_start_text">Go back</string>
+
+    <!--Strings for settings buttons-->
+    <string name="notification_text">Notifications</string>
+    <string name="use_password_text">Use password lock</string>
+    <string name="start_zero_text">Start from zero</string>
+    <string name="change_wallpaper_text">Change wallpaper</string>
+    <string name="change_font_text">Change font</string>
+    <string name="choose_colour_text">Choose theme colour</string>
+
+    <font name="settings_button_font">@font/julius_sans_one</font>
+
+    <string name="text_first_frag">Start screen with big counter</string>
+</resources>

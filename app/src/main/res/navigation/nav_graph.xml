@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/nav_graph"
+        app:startDestination="@id/StartFragment">
+
+    <fragment
+            android:id="@+id/StartFragment"
+            android:name="com.daycounter.StartFragment"
+            android:label="@string/fragment_start_label"
+            tools:layout="@layout/fragment_start">
+
+        <action
+                android:id="@+id/action_StartFragment_to_CountersFragment"
+                app:destination="@id/CountersFragment" />
+
+        <action
+                android:id="@+id/action_StartFragment_to_SettingsFragment"
+                app:destination="@id/SettingsFragment" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/CountersFragment"
+            android:name="com.daycounter.CountersFragment"
+            android:label="@string/fragment_counters_label"
+            tools:layout="@layout/fragment_counters">
+
+        <action
+                android:id="@+id/action_CountersFragment_to_StartFragment"
+                app:destination="@id/StartFragment" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/SettingsFragment"
+            android:name="com.daycounter.SettingsFragment"
+            android:label="@string/fragment_settings_label"
+            tools:layout="@layout/fragment_settings">
+
+        <action
+                android:id="@+id/action_SettingsFragment_to_StartFragment"
+                app:destination="@id/StartFragment" />
+    </fragment>
+</navigation>
