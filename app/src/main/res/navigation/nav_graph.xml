@@ -6,7 +6,7 @@
         app:startDestination="@id/StartFragment">
 
     <fragment android:id="@+id/StartFragment"
-            android:name="com.daycounter.StartFragment"
+            android:name="com.daycounter.fragment.StartFragment"
             android:label="@string/fragment_start_label"
             tools:layout="@layout/fragment_start">
 
@@ -20,7 +20,7 @@
     </fragment>
 
     <fragment android:id="@+id/CountersFragment"
-            android:name="com.daycounter.CountersFragment"
+            android:name="com.daycounter.fragment.CountersFragment"
             android:label="@string/fragment_counters_label"
             tools:layout="@layout/fragment_counters">
 
@@ -32,7 +32,7 @@
     </fragment>
 
     <fragment android:id="@+id/SettingsFragment"
-            android:name="com.daycounter.SettingsFragment"
+            android:name="com.daycounter.fragment.SettingsFragment"
             android:label="@string/fragment_settings_label"
             tools:layout="@layout/fragment_settings">
 

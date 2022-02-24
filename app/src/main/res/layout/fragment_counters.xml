@@ -4,7 +4,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".CountersFragment">
+        tools:context=".fragment.CountersFragment">
 
     <include android:id="@+id/navigationButtons"
             layout="@layout/navigation_buttons"
