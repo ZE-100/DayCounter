@@ -1,5 +1,6 @@
 package com.daycounter
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -29,15 +30,24 @@ class StartFragment : Fragment() {
 
     }
 
+    @SuppressLint("NewApi")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.otherCountersButton.setOnClickListener {
+        binding.navigationButtons.gotoCountersButton.setOnClickListener {
             findNavController().navigate(R.id.action_StartFragment_to_CountersFragment)
         }
 
-        binding.settingsButton.setOnClickListener {
+        binding.navigationButtons.gotoSettingsButton.setOnClickListener {
             findNavController().navigate(R.id.action_StartFragment_to_SettingsFragment)
+        }
+
+        binding.small.setOnClickListener {
+            binding.progressCircle.setProgress(10, true)
+        }
+
+        binding.big.setOnClickListener {
+            binding.progressCircle.setProgress(90, true)
         }
     }
 

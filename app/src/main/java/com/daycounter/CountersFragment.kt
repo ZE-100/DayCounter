@@ -8,32 +8,29 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.daycounter.databinding.FragmentCountersBinding
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
 class CountersFragment : Fragment() {
 
     private var _binding: FragmentCountersBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater,
+                              container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
 
         _binding = FragmentCountersBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonSecond.setOnClickListener {
+        binding.navigationButtons.gotoStartButton.setOnClickListener {
             findNavController().navigate(R.id.action_CountersFragment_to_StartFragment)
+        }
+
+        binding.navigationButtons.gotoSettingsButton.setOnClickListener {
+            findNavController().navigate(R.id.action_CountersFragment_to_SettingsFragment)
         }
     }
 

@@ -5,8 +5,7 @@
         android:id="@+id/nav_graph"
         app:startDestination="@id/StartFragment">
 
-    <fragment
-            android:id="@+id/StartFragment"
+    <fragment android:id="@+id/StartFragment"
             android:name="com.daycounter.StartFragment"
             android:label="@string/fragment_start_label"
             tools:layout="@layout/fragment_start">
@@ -20,25 +19,27 @@
                 app:destination="@id/SettingsFragment" />
     </fragment>
 
-    <fragment
-            android:id="@+id/CountersFragment"
+    <fragment android:id="@+id/CountersFragment"
             android:name="com.daycounter.CountersFragment"
             android:label="@string/fragment_counters_label"
             tools:layout="@layout/fragment_counters">
 
-        <action
-                android:id="@+id/action_CountersFragment_to_StartFragment"
+        <action android:id="@+id/action_CountersFragment_to_StartFragment"
                 app:destination="@id/StartFragment" />
+
+        <action android:id="@+id/action_CountersFragment_to_SettingsFragment"
+                app:destination="@id/SettingsFragment" />
     </fragment>
 
-    <fragment
-            android:id="@+id/SettingsFragment"
+    <fragment android:id="@+id/SettingsFragment"
             android:name="com.daycounter.SettingsFragment"
             android:label="@string/fragment_settings_label"
             tools:layout="@layout/fragment_settings">
 
-        <action
-                android:id="@+id/action_SettingsFragment_to_StartFragment"
+        <action android:id="@+id/action_SettingsFragment_to_StartFragment"
                 app:destination="@id/StartFragment" />
+
+        <action android:id="@+id/action_SettingsFragment_to_CountersFragment"
+                app:destination="@id/CountersFragment" />
     </fragment>
 </navigation>

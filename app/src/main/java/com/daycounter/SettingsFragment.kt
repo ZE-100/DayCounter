@@ -33,8 +33,12 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.backToStartButton.setOnClickListener {
+        binding.navigationButtons.gotoStartButton.setOnClickListener {
             findNavController().navigate(R.id.action_SettingsFragment_to_StartFragment)
+        }
+
+        binding.navigationButtons.gotoCountersButton.setOnClickListener {
+            findNavController().navigate(R.id.action_SettingsFragment_to_CountersFragment)
         }
     }
 

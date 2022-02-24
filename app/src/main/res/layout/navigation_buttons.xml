@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+
+        <Button android:id="@+id/gotoCountersButton"
+                android:layout_weight="@dimen/navigation_button_weight_1"
+                android:layout_width="@dimen/navigation_button_width"
+                android:layout_height="@dimen/navigation_button_height"
+                android:layout_marginBottom="@dimen/navigation_button_margin_bottom"
+                android:layout_marginStart="@dimen/navigation_button_margin_start"
+                android:layout_marginEnd="@dimen/navigation_button_margin_end"
+                android:layout_marginTop="@dimen/navigation_button_margin_top"
+                app:icon="?android:attr/actionModeWebSearchDrawable"
+                app:iconGravity="textStart"
+                style="?android:attr/buttonBarButtonStyle"/>
+
+        <Button android:id="@+id/gotoStartButton"
+                android:layout_weight="@dimen/navigation_button_weight_1_5"
+                android:layout_width="@dimen/navigation_button_width"
+                android:layout_height="@dimen/navigation_button_height"
+                android:layout_marginBottom="@dimen/navigation_button_margin_bottom"
+                android:layout_marginStart="@dimen/navigation_button_margin_start"
+                android:layout_marginEnd="@dimen/navigation_button_margin_end"
+                android:layout_marginTop="@dimen/navigation_button_margin_top"
+                android:fontFamily="@font/clicker_script"
+                android:textSize="@dimen/navigation_button_text_size"
+                android:text="@string/goto_start_page_text"
+                style="?android:attr/buttonBarButtonStyle"
+                android:textColor="@color/button_text_color_default"
+                android:textStyle="bold|italic" />
+
+        <Button android:id="@+id/gotoSettingsButton"
+                android:layout_weight="@dimen/navigation_button_weight_1"
+                android:layout_width="@dimen/navigation_button_width"
+                android:layout_height="@dimen/navigation_button_height"
+                android:layout_marginBottom="@dimen/navigation_button_margin_bottom"
+                android:layout_marginStart="@dimen/navigation_button_margin_start"
+                android:layout_marginEnd="@dimen/navigation_button_margin_end"
+                android:layout_marginTop="@dimen/navigation_button_margin_top"
+                app:icon="@android:drawable/ic_menu_preferences"
+                app:iconGravity="textStart"
+                style="?android:attr/buttonBarButtonStyle" />
+
+</LinearLayout>

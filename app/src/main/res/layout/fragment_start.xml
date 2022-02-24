@@ -1,32 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
         tools:context=".StartFragment">
 
+    <include android:id="@+id/navigationButtons"
+            layout="@layout/navigation_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
-    <Button
-            android:id="@+id/otherCountersButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/goto_other_counters_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.064"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="24dp" />
+    <LinearLayout android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:orientation="vertical">
 
-    <Button
-            android:id="@+id/settingsButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/goto_settings_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.936"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="24dp" />
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="6">
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/progressCircle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:indicatorSize="180dp"
+                    app:trackThickness="10dp"
+                    app:trackColor="@color/design_default_color_primary"
+                    app:indicatorColor="@color/design_default_color_primary_dark"
+                    android:layout_gravity="center_horizontal"
+                    android:progress="80"
+                    app:trackCornerRadius="8dp"
+                    android:layout_marginTop="30dp"/>
+
+            <Button android:id="@+id/small"
+                    android:layout_width="50dp"
+                    android:layout_height="201dp"
+                    android:text="smol" />
+
+            <Button android:id="@+id/big"
+                    android:layout_width="50dp"
+                    android:layout_height="201dp"
+                    android:text="big" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
