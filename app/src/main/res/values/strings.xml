@@ -6,6 +6,7 @@
     <string name="fragment_start_label">Start Fragment</string>
     <string name="fragment_counters_label">Counters Fragment</string>
     <string name="fragment_settings_label">Settings Fragment</string>
+    <string name="fragment_first_startup_label">First startup Fragment</string>
 
     <!--String for buttons-->
     <string name="goto_other_counters_text">Counters</string>

@@ -19,6 +19,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //TODO FOR TESTING PURPOSES ONLY: REMOVE
+        val sharedPreferences = getSharedPreferences("main-counter", MODE_PRIVATE)
+        val edit = sharedPreferences.edit()
+        edit.apply {
+            edit.clear()
+        }.apply()
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -26,5 +33,7 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+
+
     }
 }

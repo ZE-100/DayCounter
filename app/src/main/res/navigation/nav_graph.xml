@@ -10,13 +10,14 @@
             android:label="@string/fragment_start_label"
             tools:layout="@layout/fragment_start">
 
-        <action
-                android:id="@+id/action_StartFragment_to_CountersFragment"
+        <action android:id="@+id/action_StartFragment_to_CountersFragment"
                 app:destination="@id/CountersFragment" />
 
-        <action
-                android:id="@+id/action_StartFragment_to_SettingsFragment"
+        <action android:id="@+id/action_StartFragment_to_SettingsFragment"
                 app:destination="@id/SettingsFragment" />
+
+        <action android:id="@+id/action_StartFragment_to_FStartupFragment"
+                app:destination="@id/FirstStartupFragment" />
     </fragment>
 
     <fragment android:id="@+id/CountersFragment"
@@ -41,5 +42,14 @@
 
         <action android:id="@+id/action_SettingsFragment_to_CountersFragment"
                 app:destination="@id/CountersFragment" />
+    </fragment>
+
+    <fragment android:id="@+id/FirstStartupFragment"
+            android:name="com.daycounter.fragment.FirstStartupFragment"
+            android:label="@string/fragment_first_startup_label"
+            tools:layout="@layout/fragment_first_startup">
+
+        <action android:id="@+id/action_FStartupFragment_to_StartFragment"
+                app:destination="@id/StartFragment" />
     </fragment>
 </navigation>
