@@ -12,6 +12,10 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+
+<!--    TODO: Replace by custom background image <item name="android:windowBackground">@drawable/tree</item>-->
+
     </style>
 
     <style name="Theme.DayCounter.NoActionBar">

@@ -12,7 +12,6 @@ import com.daycounter.blueprint.Counter
 import com.daycounter.databinding.FragmentStartBinding
 import com.daycounter.other.Constants
 import com.daycounter.other.ProgressGetter
-import com.daycounter.other.Strings
 import com.daycounter.other.TranslationType
 import com.daycounter.service.calculation.GetDateDifferenceService
 import com.daycounter.service.data.DataHandlingService

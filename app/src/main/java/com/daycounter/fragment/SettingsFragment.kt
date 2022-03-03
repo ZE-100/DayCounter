@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.NotificationManagerCompat
 import androidx.navigation.fragment.findNavController
 import com.daycounter.R
+import com.daycounter.activity.MainActivity
 import com.daycounter.databinding.FragmentSettingsBinding
 
 class SettingsFragment : Fragment() {
@@ -31,6 +33,10 @@ class SettingsFragment : Fragment() {
 
         binding.navigationButtons.gotoCountersButton.setOnClickListener {
             findNavController().navigate(R.id.action_SettingsFragment_to_CountersFragment)
+        }
+
+        binding.notificationsButton.setOnClickListener {
+            (activity as MainActivity).createNewNotification("Title", "Description") //TODO: Replace with option to turn off notifications
         }
     }
 

@@ -16,125 +16,160 @@
 
     <LinearLayout android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="10">
+            android:layout_weight="10"
+            android:orientation="vertical">
 
-        <ScrollView android:layout_width="350dp"
-                android:layout_height="750dp"
-                android:id="@+id/settingsScrollMenu"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+        <!-- Top Layout -->
+        <LinearLayout android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+            <!-- Placeholder -->
+            <LinearLayout android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
 
+            <TextView android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="10"
+                    android:text="SETTINGS MENU"
+                    android:textSize="30sp" />
 
-                <Button
-                        android:layout_height="69dp"
-                        android:layout_width="match_parent"
-                        android:fontFamily="@font/julius_sans_one"
-                        android:text="Notifications"
-                        android:textSize="20sp" />
+            <!-- Placeholder -->
+            <LinearLayout android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+        </LinearLayout>
 
-                <Button
-                        android:layout_height="69dp"
-                        android:layout_width="match_parent"
-                        android:fontFamily="@font/julius_sans_one"
-                        android:text="Notifications"
-                        android:textSize="20sp" />
+        <!-- Middle Layout -->
+        <LinearLayout android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="6"
+                android:orientation="horizontal">
 
-                <Button
-                        android:layout_height="69dp"
-                        android:layout_width="match_parent"
-                        android:fontFamily="@font/julius_sans_one"
-                        android:text="Notifications"
-                        android:textSize="20sp" />
+            <!-- Placeholder -->
+            <LinearLayout android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
 
-                <Button
-                        android:layout_height="69dp"
-                        android:layout_width="match_parent"
-                        android:fontFamily="@font/julius_sans_one"
-                        android:text="Notifications"
-                        android:textSize="20sp" />
+            <ScrollView android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="10">
 
-                <Button
-                        android:layout_height="69dp"
-                        android:layout_width="match_parent"
-                        android:fontFamily="@font/julius_sans_one"
-                        android:text="Notifications"
-                        android:textSize="20sp" />
+                <LinearLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-                <Button
-                        android:layout_height="69dp"
-                        android:layout_width="match_parent"
-                        android:fontFamily="@font/julius_sans_one"
-                        android:text="Notifications"
-                        android:textSize="20sp" />
+                    <Button android:id="@+id/notificationsButton"
+                            android:layout_height="69dp"
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/julius_sans_one"
+                            android:text="Notifications"
+                            android:textSize="20sp" />
 
-                <Button
-                        android:layout_height="69dp"
-                        android:layout_width="match_parent"
-                        android:fontFamily="@font/julius_sans_one"
-                        android:text="Notifications"
-                        android:textSize="20sp" />
+                    <Button android:id="@+id/wallpaperButton"
+                            android:layout_height="69dp"
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/julius_sans_one"
+                            android:text="Change background image"
+                            android:textSize="20sp" />
 
-                <Button
-                        android:layout_height="69dp"
-                        android:layout_width="match_parent"
-                        android:fontFamily="@font/julius_sans_one"
-                        android:text="Notifications"
-                        android:textSize="20sp" />
+                    <Button android:id="@+id/fontButton"
+                            android:layout_height="69dp"
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/julius_sans_one"
+                            android:text="Change the font"
+                            android:textSize="20sp" />
 
-                <Button
-                        android:layout_height="69dp"
-                        android:layout_width="match_parent"
-                        android:fontFamily="@font/julius_sans_one"
-                        android:text="Notifications"
-                        android:textSize="20sp" />
-                <Button
-                        android:layout_height="69dp"
-                        android:layout_width="match_parent"
-                        android:fontFamily="@font/julius_sans_one"
-                        android:text="Notifications"
-                        android:textSize="20sp" />
-                <Button
-                        android:layout_height="69dp"
-                        android:layout_width="match_parent"
-                        android:fontFamily="@font/julius_sans_one"
-                        android:text="Notifications"
-                        android:textSize="20sp" />
-                <Button
-                        android:layout_height="69dp"
-                        android:layout_width="match_parent"
-                        android:fontFamily="@font/julius_sans_one"
-                        android:text="Notifications"
-                        android:textSize="20sp" />
-                <Button
-                        android:layout_height="69dp"
-                        android:layout_width="match_parent"
-                        android:fontFamily="@font/julius_sans_one"
-                        android:text="Notifications"
-                        android:textSize="20sp" />
-                <Button
-                        android:layout_height="69dp"
-                        android:layout_width="match_parent"
-                        android:fontFamily="@font/julius_sans_one"
-                        android:text="Notifications"
-                        android:textSize="20sp" />
-                <Button
-                        android:layout_height="69dp"
-                        android:layout_width="match_parent"
-                        android:fontFamily="@font/julius_sans_one"
-                        android:text="Notifications"
-                        android:textSize="20sp" />
+                    <Button android:id="@+id/colourButton"
+                            android:layout_height="69dp"
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/julius_sans_one"
+                            android:text="Text colour"
+                            android:textSize="20sp" />
 
+                    <Button android:id="@+id/themeButton"
+                            android:layout_height="69dp"
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/julius_sans_one"
+                            android:text="Theme"
+                            android:textSize="20sp" />
+
+                    <Button android:id="@+id/supportButton"
+                            android:layout_height="69dp"
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/julius_sans_one"
+                            android:text="Support"
+                            android:textSize="20sp" />
+
+                    <Button android:id="@+id/rateButton"
+                            android:layout_height="69dp"
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/julius_sans_one"
+                            android:text="Rate the app"
+                            android:textSize="20sp" />
+
+                    <Button android:id="@+id/backupButton"
+                            android:layout_height="69dp"
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/julius_sans_one"
+                            android:text="Backup / Restore"
+                            android:textSize="20sp" />
+
+                </LinearLayout>
+
+            </ScrollView>
+
+            <!-- Placeholder -->
+            <LinearLayout android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <!-- Bottom Layout legal notice -->
+        <LinearLayout android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+            <!-- Placeholder -->
+            <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+            <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="10"
+                    android:orientation="horizontal">
+                <!-- Placeholder -->
+                <LinearLayout android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="10"
+                        android:text="LEGAL NOTICE BS"
+                        android:textSize="20sp"/>
+
+                <!-- Placeholder -->
+                <LinearLayout android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
 
             </LinearLayout>
 
-        </ScrollView>
+            <!-- Placeholder -->
+            <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

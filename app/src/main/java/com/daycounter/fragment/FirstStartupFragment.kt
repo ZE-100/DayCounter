@@ -12,6 +12,7 @@ import com.daycounter.R
 import com.daycounter.blueprint.Counter
 import com.daycounter.databinding.FragmentFirstStartupBinding
 import com.daycounter.other.Constants
+import com.daycounter.other.Snackbar.Factory.displaySnackbar
 import com.daycounter.other.Strings
 import com.daycounter.service.data.DataHandlingService
 import com.daycounter.service.validate.InputDateValidationService
@@ -58,13 +59,6 @@ class FirstStartupFragment : Fragment() {
     // TODO Make red glow and change snackbar to text
     private fun createDateInputBindings(view: View) {
         val validateDate = InputDateValidationService()
-
-        fun displaySnackbar(s: String, view: View) {
-            Snackbar.make(view, s, Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-
-            binding.submitButton.isEnabled = false
-        }
 
         binding.inputDay.doOnTextChanged {
                 text, start, count, after ->
