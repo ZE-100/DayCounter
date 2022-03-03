@@ -16,8 +16,7 @@ class CountersFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         _binding = FragmentCountersBinding.inflate(inflater, container, false)
         return binding.root

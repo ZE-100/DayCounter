@@ -10,7 +10,9 @@ import androidx.navigation.fragment.findNavController
 import com.daycounter.R
 import com.daycounter.blueprint.Counter
 import com.daycounter.databinding.FragmentStartBinding
+import com.daycounter.other.Constants
 import com.daycounter.other.ProgressGetter
+import com.daycounter.other.Strings
 import com.daycounter.other.TranslationType
 import com.daycounter.service.calculation.GetDateDifferenceService
 import com.daycounter.service.data.DataHandlingService
@@ -24,8 +26,7 @@ class StartFragment : Fragment() {
     private var mainCounter: Counter? = null
 
     override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         _binding = FragmentStartBinding.inflate(inflater, container, false)
         return binding.root
@@ -57,7 +58,7 @@ class StartFragment : Fragment() {
 
         val fetchedData = dataHandler.loadData(
             this.activity!!.getSharedPreferences(
-                "main-counter",
+                Constants.MAIN_COUNTER,
                 Context.MODE_PRIVATE))
 
         if (fetchedData != null)

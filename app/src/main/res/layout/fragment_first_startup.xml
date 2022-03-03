@@ -6,21 +6,136 @@
         android:orientation="vertical"
         tools:context=".fragment.CountersFragment">
 
+    <!-- Navbar replacement -->
     <LinearLayout android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
 
+    <!-- Whole page -->
     <LinearLayout android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="10">
+            android:layout_weight="10"
+            android:orientation="vertical">
+
+        <!-- Top part page -->
+        <LinearLayout android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="5"
+                android:orientation="vertical">
 
 
-        <Button
-                android:text="Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/submitButton"
+            <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"
+                    android:orientation="vertical">
+
+                <TextView android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/clicker_script"
+                        android:textColor="@color/button_text_color_default"
+                        android:textStyle="bold|italic"
+                        android:textSize="30sp"
+                        android:text="Create counter"
+                        android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <!-- Image & Name upload area -->
+            <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="8"
+                    android:orientation="horizontal">
+
+                <LinearLayout android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                    <Button
+                            android:text="Replace with image upload"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/button"
+                            android:layout_weight="1" />
+
+                    <EditText android:id="@+id/inputPersonOne"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="3" />
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                    <Button
+                            android:text="Replace with image upload"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/button2"
+                            android:layout_weight="1" />
+
+                    <EditText android:id="@+id/inputPersonTwo"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="3" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"
+                    android:orientation="horizontal">
+
+                <EditText android:id="@+id/inputDay"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:inputType="number"/>
+
+                <EditText android:id="@+id/inputMonth"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:inputType="number"/>
+
+                <EditText android:id="@+id/inputYear"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:inputType="number"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Bottom part page -->
+        <LinearLayout android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+            <Button android:id="@+id/submitButtonTestData"
+                    android:text="Submit testdata"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+            <Button android:id="@+id/submitButton"
+                    android:text="Submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <!-- Placeholder -->
+        <LinearLayout android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1" />
+
     </LinearLayout>
 
 </LinearLayout>
