@@ -1,6 +1,7 @@
 package com.daycounter.fragment
 
 import android.content.Context
+import android.graphics.Color.red
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -35,8 +36,10 @@ class StartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         getCounter()
-
         updateMainCounter()
+
+        binding.navigationButtons.gotoStartButton.setTextColor(
+            activity!!.getApplication().getResources().getColor(R.color.nav_btn_focused))
 
         binding.navigationButtons.gotoCountersButton.setOnClickListener {
             findNavController().navigate(R.id.action_StartFragment_to_CountersFragment)

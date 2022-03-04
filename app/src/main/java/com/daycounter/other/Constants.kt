@@ -8,6 +8,8 @@ class Constants {
         const val DATE_FORMAT = "dd-MM-yyyy-HH-mm-ss"
         const val MAIN_COUNTER = "main-counter"
         const val ANNIVERSARY_CHANNEL_ID = 1L
+        var NOTIFICATIONS_ENABLED = true
+        var RUN_IN_BACKGROUND_ENABLED = true
     }
 }
 
