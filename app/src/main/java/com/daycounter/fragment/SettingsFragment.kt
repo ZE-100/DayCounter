@@ -22,12 +22,14 @@ import com.daycounter.R
 import com.daycounter.activity.MainActivity
 import com.daycounter.databinding.FragmentSettingsBinding
 import com.daycounter.other.Constants
+import com.daycounter.service.data.DataHandlingService
 
 class SettingsFragment : Fragment() {
 
     private var _binding: FragmentSettingsBinding? = null
-
     private val binding get() = _binding!!
+
+    private val handler = DataHandlingService()
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -40,7 +42,16 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        val wrapped = DrawableCompat.wrap(AppCompatResources
+        handler.loadData(activity!!
+            .getSharedPreferences(Constants.USER_PREFERENCES, Context.MODE_PRIVATE))
+
+        navBtnBinding()
+        settingBtnBinding()
+    }
+
+    //TODO Do once, include this idk
+    private fun navBtnBinding() {
+        //        val wrapped = DrawableCompat.wrap(AppCompatResources
 //                .getDrawable(context as Context, R.drawable.settings_icon) as Drawable)
 //why do i have to do this
 //        DrawableCompat.setTint(wrapped, ContextCompat
@@ -58,20 +69,54 @@ class SettingsFragment : Fragment() {
         binding.navigationButtons.gotoCountersButton.setOnClickListener {
             findNavController().navigate(R.id.action_SettingsFragment_to_CountersFragment)
         }
+    }
+
+    /**
+     * Creates the button bindings with their
+     * corresponding functionalities
+     */
+    private fun settingBtnBinding() {
+
+        binding.notificationSwitch.isChecked = Constants.NOTIFICATIONS_ENABLED
+        binding.notificationSwitch.setOnCheckedChangeListener {
+            _, isChecked ->
+            if (isChecked) {
+                Constants.NOTIFICATIONS_ENABLED = isChecked
+                Constants.RUN_IN_BACKGROUND_ENABLED = isChecked
+                binding.runInBackgroundSwitch.isChecked = isChecked
+            } else {
+                Constants.NOTIFICATIONS_ENABLED = isChecked
+            }
+            savePreferences()
+        }
+
+        binding.runInBackgroundSwitch.isChecked = Constants.RUN_IN_BACKGROUND_ENABLED
+        binding.runInBackgroundSwitch.setOnCheckedChangeListener {
+            _, isChecked ->
+            if (isChecked) {
+                Constants.RUN_IN_BACKGROUND_ENABLED = isChecked
+            } else {
+                Constants.RUN_IN_BACKGROUND_ENABLED = isChecked
+                Constants.NOTIFICATIONS_ENABLED = isChecked
+                binding.notificationSwitch.isChecked = isChecked
+            }
+
+            savePreferences()
+        }
 
         binding.wallpaperButton.setOnClickListener {
             sendTestNotification()
-        } //TODO Safe this shit in preferences
-
-        binding.notificationSwitch.setOnCheckedChangeListener {
-                _, isChecked -> Constants.NOTIFICATIONS_ENABLED = isChecked
         }
     }
 
+    private fun savePreferences() {
+        handler.saveData(this.activity!!.getSharedPreferences(Constants.USER_PREFERENCES, Context.MODE_PRIVATE))
+
+    }
     private fun sendTestNotification() {
         if (Constants.NOTIFICATIONS_ENABLED)
-            (activity as MainActivity).createNewNotification("This is a test",
-                "If you see this, you did everything right!") //TODO: Replace with option to turn off notifications
+            (activity as MainActivity).createNewNotification("You did it!",
+                "You just enabled anniversary notifications")
     }
 
     override fun onDestroyView() {

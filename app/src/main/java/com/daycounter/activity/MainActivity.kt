@@ -3,6 +3,7 @@ package com.daycounter.activity
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -13,6 +14,7 @@ import androidx.core.app.NotificationManagerCompat
 import com.daycounter.R
 import com.daycounter.databinding.ActivityMainBinding
 import com.daycounter.other.Constants
+import com.daycounter.service.data.DataHandlingService
 
 class MainActivity : AppCompatActivity() {
     //TODO Stuff listed here
@@ -26,19 +28,21 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //TODO FOR TESTING PURPOSES ONLY: REMOVE
-        val sharedPreferences = getSharedPreferences(Constants.MAIN_COUNTER, MODE_PRIVATE)
-        val edit = sharedPreferences.edit()
-        edit.apply {
-            edit.clear()
-        }.apply()
-
         // Create channels on startup
         createAnniversaryChannel()
         createConstantChannel()
 
+        loadUserPreferences()
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    }
+
+    private fun loadUserPreferences() {
+        val handler = DataHandlingService()
+
+        handler.loadData(
+            getSharedPreferences(Constants.USER_PREFERENCES, Context.MODE_PRIVATE))
     }
 
     fun createNewNotification(notificationTitle: String, notificationText: String) {
@@ -76,7 +80,6 @@ class MainActivity : AppCompatActivity() {
             notificationManager.createNotificationChannel(mChannel)
         }
     }
-
 
     private fun createConstantChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

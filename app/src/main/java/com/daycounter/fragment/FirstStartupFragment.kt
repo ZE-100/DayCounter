@@ -98,15 +98,16 @@ class FirstStartupFragment : Fragment() {
         val sdf = SimpleDateFormat(Constants.DATE_FORMAT, Locale.GERMANY)
         val handler = DataHandlingService()
 
-        var counter = Counter(null, null, null)
-
-        try {
-            counter = if (personOne != null) Counter(personOne, personTwo, sdf.parse(date))
-                        else Counter("Person One", "Person Two", sdf.parse("27-12-2019-00-00-00")) //Test data
+        Constants.MAIN_COUNTER = try {
+            if (personOne != null)
+                Counter(personOne, personTwo, sdf.parse(date))
+            else //Test data
+                Counter("Person One", "Person Two", sdf.parse("27-12-2019-00-00-00"))
         } catch (e: Exception) {
             e.printStackTrace()
+            null
         }
 
-        handler.saveData(this.context!!.getSharedPreferences(Constants.MAIN_COUNTER, Context.MODE_PRIVATE), counter)
+        handler.saveData(this.context!!.getSharedPreferences(Constants.USER_PREFERENCES, Context.MODE_PRIVATE))
     }
 }

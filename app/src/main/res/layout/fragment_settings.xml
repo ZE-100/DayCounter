@@ -97,30 +97,44 @@
                                 android:textColor="@color/settings_text"
                                 android:gravity="center_vertical"
                                 android:text="@string/enable_notifications_info" />
-
                     </LinearLayout>
 
                     <!-- Run in background -->
-                    <LinearLayout android:layout_width="match_parent"
-                            android:layout_height="69dp"
-                            android:orientation="horizontal">
+                <LinearLayout android:layout_width="match_parent"
+                        android:layout_height="69dp"
+                        android:orientation="vertical">
 
-                        <TextView android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="5"
+                        <LinearLayout android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2"
+                                android:orientation="horizontal">
+
+                            <TextView android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="5"
+                                    android:fontFamily="@font/settings_button_font"
+                                    android:textSize="20sp"
+                                    android:textColor="@color/settings_text"
+                                    android:gravity="center_vertical"
+                                    android:text="@string/run_in_background_text" />
+
+                            <Switch android:id="@+id/runInBackgroundSwitch"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:checked="true"
+                                    android:theme="@style/SCBSwitch"
+                                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+                        </LinearLayout>
+
+                        <TextView android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
                                 android:fontFamily="@font/settings_button_font"
-                                android:textSize="20sp"
+                                android:textSize="11sp"
                                 android:textColor="@color/settings_text"
                                 android:gravity="center_vertical"
-                                android:text="@string/run_in_background_text" />
-
-                        <Switch android:id="@+id/runInBackgroundSwitch"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:checked="true"
-                                android:theme="@style/SCBSwitch"
-                                tools:ignore="UseSwitchCompatOrMaterialXml" />
+                                android:text="@string/enable_notifications_info" />
                     </LinearLayout>
 
                     <Button android:id="@+id/wallpaperButton"

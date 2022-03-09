@@ -1,7 +1,5 @@
 package com.daycounter.fragment
 
-import android.content.Context
-import android.graphics.Color.red
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,15 +13,11 @@ import com.daycounter.other.Constants
 import com.daycounter.other.ProgressGetter
 import com.daycounter.other.TranslationType
 import com.daycounter.service.calculation.GetDateDifferenceService
-import com.daycounter.service.data.DataHandlingService
 
 class StartFragment : Fragment() {
 
     private var _binding: FragmentStartBinding? = null
-
     private val binding get() = _binding!!
-
-    private var mainCounter: Counter? = null
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -35,8 +29,7 @@ class StartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        getCounter()
-        updateMainCounter()
+        updateMainCounter(getCounter())
 
         binding.navigationButtons.gotoStartButton.setTextColor(
             activity!!.getApplication().getResources().getColor(R.color.nav_btn_focused))
@@ -50,26 +43,15 @@ class StartFragment : Fragment() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
-    private fun getCounter() {
-        val dataHandler = DataHandlingService()
-
-        val fetchedData = dataHandler.loadData(
-            this.activity!!.getSharedPreferences(
-                Constants.MAIN_COUNTER,
-                Context.MODE_PRIVATE))
-
-        if (fetchedData != null)
-            mainCounter = fetchedData
+    private fun getCounter(): Counter? {
+        if (Constants.MAIN_COUNTER != null)
+            return Constants.MAIN_COUNTER!!
         else
             findNavController().navigate(R.id.action_StartFragment_to_FStartupFragment)
+        return null
     }
 
-    private fun updateMainCounter() {
+    private fun updateMainCounter(mainCounter: Counter?) {
         val dateDiff = GetDateDifferenceService()
 
         val days = dateDiff.getDateDifference(mainCounter?.startDate, TranslationType.DAYS)
@@ -83,5 +65,10 @@ class StartFragment : Fragment() {
 
         binding.personOne.text = mainCounter?.personOne
         binding.personTwo.text = mainCounter?.personTwo
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -1,24 +1,33 @@
 package com.daycounter.other
 
 import android.view.View
+import com.daycounter.blueprint.Counter
 import com.google.android.material.snackbar.Snackbar
 
 class Constants {
     companion object Factory {
         const val DATE_FORMAT = "dd-MM-yyyy-HH-mm-ss"
-        const val MAIN_COUNTER = "main-counter"
+        const val USER_PREFERENCES = "user-preferences"
         const val ANNIVERSARY_CHANNEL_ID = 1L
         var NOTIFICATIONS_ENABLED = true
         var RUN_IN_BACKGROUND_ENABLED = true
+        var MAIN_COUNTER: Counter? = null
     }
 }
 
 class Strings {
     companion object Factory {
-        const val P1 = "person-one"
-        const val P2 = "person-two"
-        const val D1 = "start-date"
         const val INVALID_INPUT = "Invalid input!"
+    }
+}
+
+class Preferences {
+    companion object Factory {
+        const val PERSON_ONE = "person-one"
+        const val PERSON_TWO = "person-two"
+        const val DATE_ONE = "start-date"
+        const val NOTIFICATIONS_ENABLED = "notifications-enabled"
+        const val RUN_IN_BACKGROUND_ENABLED = "run-in-background"
     }
 }
 
