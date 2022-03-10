@@ -4,7 +4,6 @@ import android.content.SharedPreferences
 import com.daycounter.blueprint.Counter
 import com.daycounter.other.Constants
 import com.daycounter.other.Preferences
-import com.daycounter.other.Strings
 import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
@@ -23,8 +22,10 @@ class DataHandlingService {
                 putString(Preferences.PERSON_TWO, Constants.MAIN_COUNTER?.personTwo)
                 putString(Preferences.DATE_ONE, sdf.format(Constants.MAIN_COUNTER?.startDate))
 
-                putBoolean(Preferences.NOTIFICATIONS_ENABLED, Constants.NOTIFICATIONS_ENABLED)
-                putBoolean(Preferences.RUN_IN_BACKGROUND_ENABLED, Constants.RUN_IN_BACKGROUND_ENABLED)
+                // Setting preferences
+                putBoolean(Preferences.ENABLE_NOTIFICATIONS, Constants.ENABLE_NOTIFICATIONS)
+                putBoolean(Preferences.ENABLE_BACKGROUND_SERVICES, Constants.ENABLE_BACKGROUND_SERVICES)
+                putBoolean(Preferences.ENABLE_DARKMODE, Constants.ENABLE_DARKMODE)
             }.apply()
 
         return sharedPref.getString(Preferences.PERSON_ONE, null) != null
@@ -39,8 +40,9 @@ class DataHandlingService {
             // End
 
             // Preferences data
-                Constants.NOTIFICATIONS_ENABLED = sharedPref.getBoolean(Preferences.NOTIFICATIONS_ENABLED, true)
-                Constants.RUN_IN_BACKGROUND_ENABLED = sharedPref.getBoolean(Preferences.RUN_IN_BACKGROUND_ENABLED, true)
+                Constants.ENABLE_NOTIFICATIONS = sharedPref.getBoolean(Preferences.ENABLE_NOTIFICATIONS, true)
+                Constants.ENABLE_BACKGROUND_SERVICES = sharedPref.getBoolean(Preferences.ENABLE_BACKGROUND_SERVICES, true)
+                Constants.ENABLE_DARKMODE = sharedPref.getBoolean(Preferences.ENABLE_DARKMODE, true)
             // End
 
             if (personOne != null && personTwo != null)

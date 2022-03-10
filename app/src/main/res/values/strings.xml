@@ -3,10 +3,10 @@
     <string name="app_name">DayCounter</string>
 
     <!-- Strings used for fragments for navigation -->
-    <string name="fragment_start_label">Start Fragment</string>
-    <string name="fragment_counters_label">Counters Fragment</string>
-    <string name="fragment_settings_label">Settings Fragment</string>
-    <string name="fragment_first_startup_label">First startup Fragment</string>
+    <string name="fragment_start_label">Start Page</string>
+    <string name="fragment_counters_label">RENAME TO REMINDERS</string>
+    <string name="fragment_settings_label">Settings</string>
+    <string name="fragment_first_startup_label">Edit main counter</string>
 
     <!--String for nav buttons-->
     <string name="goto_other_counters_text">Counters</string>
@@ -30,4 +30,6 @@
     <string name="enable_notifications_info">Enable to get notifications on special dates!</string>
     <string name="run_in_background_text">Run in background</string>
     <string name="run_in_background_info">Needed in order to calculate certain dates!</string>
+    <string name="enable_dark_mode_text">Switch light/dark theme</string>
+    <string name="enable_dark_mode_info">Change the applications appearance!</string>
 </resources>

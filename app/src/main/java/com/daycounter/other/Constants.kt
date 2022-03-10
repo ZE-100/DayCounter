@@ -9,9 +9,11 @@ class Constants {
         const val DATE_FORMAT = "dd-MM-yyyy-HH-mm-ss"
         const val USER_PREFERENCES = "user-preferences"
         const val ANNIVERSARY_CHANNEL_ID = 1L
-        var NOTIFICATIONS_ENABLED = true
-        var RUN_IN_BACKGROUND_ENABLED = true
         var MAIN_COUNTER: Counter? = null
+        // Setting preferences
+        var ENABLE_NOTIFICATIONS = true
+        var ENABLE_BACKGROUND_SERVICES = true
+        var ENABLE_DARKMODE = true
     }
 }
 
@@ -26,8 +28,9 @@ class Preferences {
         const val PERSON_ONE = "person-one"
         const val PERSON_TWO = "person-two"
         const val DATE_ONE = "start-date"
-        const val NOTIFICATIONS_ENABLED = "notifications-enabled"
-        const val RUN_IN_BACKGROUND_ENABLED = "run-in-background"
+        const val ENABLE_NOTIFICATIONS = "enable-notifications"
+        const val ENABLE_BACKGROUND_SERVICES = "enable-background-services"
+        const val ENABLE_DARKMODE = "enable-darkmode"
     }
 }
 

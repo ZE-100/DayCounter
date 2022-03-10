@@ -2,21 +2,11 @@ package com.daycounter.fragment
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.res.ColorStateList
-import android.graphics.drawable.Drawable
-import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CompoundButton
-import android.widget.RadioGroup
-import androidx.annotation.RequiresApi
-import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.app.NotificationManagerCompat
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.DrawableCompat
 import androidx.navigation.fragment.findNavController
 import com.daycounter.R
 import com.daycounter.activity.MainActivity
@@ -51,17 +41,7 @@ class SettingsFragment : Fragment() {
 
     //TODO Do once, include this idk
     private fun navBtnBinding() {
-        //        val wrapped = DrawableCompat.wrap(AppCompatResources
-//                .getDrawable(context as Context, R.drawable.settings_icon) as Drawable)
-//why do i have to do this
-//        DrawableCompat.setTint(wrapped, ContextCompat
-//            .getColor(context as Context, R.color.nav_btn_focused))
-//
-//        binding.navigationButtons.gotoSettingsButton
-//            .setCompoundDrawables(null, wrapped, null, null)
         //TODO: Change icon colour
-        binding.navigationButtons.gotoSettingsButton.compoundDrawableTintList = ColorStateList.valueOf(activity!!.getColor(R.color.nav_btn_focused))
-
         binding.navigationButtons.gotoStartButton.setOnClickListener {
             findNavController().navigate(R.id.action_SettingsFragment_to_StartFragment)
         }
@@ -71,41 +51,39 @@ class SettingsFragment : Fragment() {
         }
     }
 
-    /**
-     * Creates the button bindings with their
-     * corresponding functionalities
-     */
     private fun settingBtnBinding() {
 
-        binding.notificationSwitch.isChecked = Constants.NOTIFICATIONS_ENABLED
+        binding.notificationSwitch.isChecked = Constants.ENABLE_NOTIFICATIONS
         binding.notificationSwitch.setOnCheckedChangeListener {
             _, isChecked ->
             if (isChecked) {
-                Constants.NOTIFICATIONS_ENABLED = isChecked
-                Constants.RUN_IN_BACKGROUND_ENABLED = isChecked
+                Constants.ENABLE_NOTIFICATIONS = isChecked
+                Constants.ENABLE_BACKGROUND_SERVICES = isChecked
                 binding.runInBackgroundSwitch.isChecked = isChecked
+                sendTestNotification()
             } else {
-                Constants.NOTIFICATIONS_ENABLED = isChecked
+                Constants.ENABLE_NOTIFICATIONS = isChecked
             }
             savePreferences()
         }
 
-        binding.runInBackgroundSwitch.isChecked = Constants.RUN_IN_BACKGROUND_ENABLED
+        binding.runInBackgroundSwitch.isChecked = Constants.ENABLE_BACKGROUND_SERVICES
         binding.runInBackgroundSwitch.setOnCheckedChangeListener {
             _, isChecked ->
             if (isChecked) {
-                Constants.RUN_IN_BACKGROUND_ENABLED = isChecked
+                Constants.ENABLE_BACKGROUND_SERVICES = isChecked
             } else {
-                Constants.RUN_IN_BACKGROUND_ENABLED = isChecked
-                Constants.NOTIFICATIONS_ENABLED = isChecked
+                Constants.ENABLE_BACKGROUND_SERVICES = isChecked
+                Constants.ENABLE_NOTIFICATIONS = isChecked
                 binding.notificationSwitch.isChecked = isChecked
             }
-
             savePreferences()
         }
-
-        binding.wallpaperButton.setOnClickListener {
-            sendTestNotification()
+        //TODO Implement useless feature
+        binding.darkModeSwitch.isChecked = Constants.ENABLE_DARKMODE
+        binding.darkModeSwitch.setOnCheckedChangeListener {
+            _, isChecked -> Constants.ENABLE_DARKMODE = isChecked
+            savePreferences()
         }
     }
 
@@ -114,7 +92,7 @@ class SettingsFragment : Fragment() {
 
     }
     private fun sendTestNotification() {
-        if (Constants.NOTIFICATIONS_ENABLED)
+        if (Constants.ENABLE_NOTIFICATIONS)
             (activity as MainActivity).createNewNotification("You did it!",
                 "You just enabled anniversary notifications")
     }

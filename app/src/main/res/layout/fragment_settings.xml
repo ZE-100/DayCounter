@@ -33,8 +33,11 @@
             <TextView android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="10"
-                    android:text="SETTINGS MENU"
-                    android:textSize="30sp" />
+                    android:fontFamily="@font/settings_button_font"
+                    android:textSize="30sp"
+                    android:textColor="@color/settings_text"
+                    android:gravity="center_vertical"
+                    android:text="@string/fragment_settings_label" />
 
             <!-- Placeholder -->
             <LinearLayout android:layout_width="0dp"
@@ -89,18 +92,31 @@
                                     tools:ignore="UseSwitchCompatOrMaterialXml" />
                         </LinearLayout>
 
-                        <TextView android:layout_width="match_parent"
+                        <LinearLayout android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:fontFamily="@font/settings_button_font"
-                                android:textSize="11sp"
-                                android:textColor="@color/settings_text"
-                                android:gravity="center_vertical"
-                                android:text="@string/enable_notifications_info" />
+                                android:orientation="horizontal">
+
+                            <TextView android:layout_weight="4"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/settings_button_font"
+                                    android:textSize="11sp"
+                                    android:textColor="@color/settings_text"
+                                    android:gravity="center_vertical"
+                                    android:text="@string/enable_notifications_info" />
+
+                            <!-- Placeholder -->
+                            <LinearLayout android:layout_weight="1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent" />
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                     <!-- Run in background -->
-                <LinearLayout android:layout_width="match_parent"
+                    <LinearLayout android:layout_width="match_parent"
                         android:layout_height="69dp"
                         android:orientation="vertical">
 
@@ -127,14 +143,78 @@
                                     tools:ignore="UseSwitchCompatOrMaterialXml" />
                         </LinearLayout>
 
-                        <TextView android:layout_width="match_parent"
+                        <LinearLayout android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:fontFamily="@font/settings_button_font"
-                                android:textSize="11sp"
-                                android:textColor="@color/settings_text"
-                                android:gravity="center_vertical"
-                                android:text="@string/enable_notifications_info" />
+                                android:orientation="horizontal">
+
+                            <TextView android:layout_weight="4"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/settings_button_font"
+                                    android:textSize="11sp"
+                                    android:textColor="@color/settings_text"
+                                    android:gravity="center_vertical"
+                                    android:text="@string/run_in_background_info" />
+
+                            <!-- Placeholder -->
+                            <LinearLayout android:layout_weight="1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent" />
+
+                    </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Light / dark -->
+                    <LinearLayout android:layout_width="match_parent"
+                            android:layout_height="69dp"
+                            android:orientation="vertical">
+
+                        <LinearLayout android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2"
+                                android:orientation="horizontal">
+
+                            <TextView android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="5"
+                                    android:fontFamily="@font/settings_button_font"
+                                    android:textSize="20sp"
+                                    android:textColor="@color/settings_text"
+                                    android:gravity="center_vertical"
+                                    android:text="@string/enable_dark_mode_text" />
+
+                            <Switch android:id="@+id/darkModeSwitch"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:checked="true"
+                                    android:theme="@style/SCBSwitch"
+                                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+                        </LinearLayout>
+
+                        <LinearLayout android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                            <TextView android:layout_weight="4"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/settings_button_font"
+                                    android:textSize="11sp"
+                                    android:textColor="@color/settings_text"
+                                    android:gravity="center_vertical"
+                                    android:text="@string/enable_dark_mode_info" />
+
+                            <!-- Placeholder -->
+                            <LinearLayout android:layout_weight="1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent" />
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                     <Button android:id="@+id/wallpaperButton"
