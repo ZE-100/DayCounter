@@ -35,11 +35,15 @@ class StartFragment : Fragment() {
             activity!!.getApplication().getResources().getColor(R.color.nav_btn_focused))
 
         binding.navigationButtons.gotoCountersButton.setOnClickListener {
-            findNavController().navigate(R.id.action_StartFragment_to_CountersFragment)
+            findNavController().navigate(R.id.action_start_to_reminders)
         }
 
         binding.navigationButtons.gotoSettingsButton.setOnClickListener {
-            findNavController().navigate(R.id.action_StartFragment_to_SettingsFragment)
+            findNavController().navigate(R.id.action_start_to_settings)
+        }
+
+        binding.progressCircle.setOnClickListener {
+            findNavController().navigate(R.id.action_start_to_editcounters)
         }
     }
 
@@ -47,7 +51,7 @@ class StartFragment : Fragment() {
         if (Constants.MAIN_COUNTER != null)
             return Constants.MAIN_COUNTER!!
         else
-            findNavController().navigate(R.id.action_StartFragment_to_FStartupFragment)
+            findNavController().navigate(R.id.action_start_to_editcounters)
         return null
     }
 

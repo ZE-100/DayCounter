@@ -10,25 +10,25 @@
             android:label="@string/fragment_start_label"
             tools:layout="@layout/fragment_start">
 
-        <action android:id="@+id/action_StartFragment_to_CountersFragment"
-                app:destination="@id/CountersFragment" />
+        <action android:id="@+id/action_start_to_reminders"
+                app:destination="@id/RemindersFragment" />
 
-        <action android:id="@+id/action_StartFragment_to_SettingsFragment"
+        <action android:id="@+id/action_start_to_settings"
                 app:destination="@id/SettingsFragment" />
 
-        <action android:id="@+id/action_StartFragment_to_FStartupFragment"
-                app:destination="@id/FirstStartupFragment" />
+        <action android:id="@+id/action_start_to_editcounters"
+                app:destination="@id/EditCountersFragment" />
     </fragment>
 
-    <fragment android:id="@+id/CountersFragment"
-            android:name="com.daycounter.fragment.CountersFragment"
-            android:label="@string/fragment_counters_label"
-            tools:layout="@layout/fragment_counters">
+    <fragment android:id="@+id/RemindersFragment"
+            android:name="com.daycounter.fragment.RemindersFragment"
+            android:label="@string/fragment_reminders_label"
+            tools:layout="@layout/fragment_reminders">
 
-        <action android:id="@+id/action_CountersFragment_to_StartFragment"
+        <action android:id="@+id/action_reminders_to_start"
                 app:destination="@id/StartFragment" />
 
-        <action android:id="@+id/action_CountersFragment_to_SettingsFragment"
+        <action android:id="@+id/action_counters_to_settings"
                 app:destination="@id/SettingsFragment" />
     </fragment>
 
@@ -37,19 +37,20 @@
             android:label="@string/fragment_settings_label"
             tools:layout="@layout/fragment_settings">
 
-        <action android:id="@+id/action_SettingsFragment_to_StartFragment"
+        <action android:id="@+id/action_settings_to_start"
                 app:destination="@id/StartFragment" />
 
-        <action android:id="@+id/action_SettingsFragment_to_CountersFragment"
-                app:destination="@id/CountersFragment" />
+        <action android:id="@+id/action_settings_to_reminders"
+                app:destination="@id/RemindersFragment" />
     </fragment>
 
-    <fragment android:id="@+id/FirstStartupFragment"
-            android:name="com.daycounter.fragment.FirstStartupFragment"
-            android:label="@string/fragment_first_startup_label"
-            tools:layout="@layout/fragment_first_startup">
+    <fragment android:id="@+id/EditCountersFragment"
+            android:name="com.daycounter.fragment.EditMainCountersFragment"
+            android:label="@string/fragment_edit_counters_label"
+            tools:layout="@layout/fragment_edit_counters">
 
-        <action android:id="@+id/action_FStartupFragment_to_StartFragment"
+        <action android:id="@+id/action_editcounter_to_start"
                 app:destination="@id/StartFragment" />
     </fragment>
+
 </navigation>

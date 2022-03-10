@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_gravity="center"
+        card_view:cardBackgroundColor="#00FF0000"
+        card_view:cardCornerRadius="10dp">
+
+    <LinearLayout android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <LinearLayout android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal">
+
+            <ImageView android:layout_weight="1"
+                    android:id="@+id/reminderThumbnail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@color/purple_200" />
+
+            <LinearLayout android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                <TextView android:layout_weight="5"
+                        android:id="@+id/reminderTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:fontFamily="@font/settings_button_font"
+                        android:textSize="20sp"
+                        android:textColor="@color/settings_text"
+                        android:gravity="center_vertical"
+                        android:maxLength="32"
+                        android:padding="5dp"
+                        android:text="Title" />
+
+                <TextView android:layout_weight="5"
+                        android:id="@+id/reminderDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:padding="5dp"
+                        android:fontFamily="@font/settings_button_font"
+                        android:textSize="10sp"
+                        android:textColor="@color/settings_text"
+                        android:gravity="center_vertical"
+                        android:maxLength="90"
+                        android:text="Description" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical">
+
+            <TextView android:layout_width="match_parent"
+                    android:id="@+id/reminderDate"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"
+                    android:padding="20dp"
+                    android:fontFamily="@font/settings_button_font"
+                    android:textSize="30sp"
+                    android:textColor="@color/settings_text"
+                    android:gravity="center_vertical"
+                    android:text="31. Septgust 2025" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

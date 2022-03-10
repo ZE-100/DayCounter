@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".fragment.CountersFragment">
+        tools:context=".fragment.RemindersFragment">
 
 
     <include android:id="@+id/navigationButtons"
@@ -14,15 +14,16 @@
             android:layout_height="0dp"
             android:layout_weight="1"/>
 
-    <LinearLayout android:layout_width="match_parent"
+    <!-- Main area -->
+    <LinearLayout android:layout_weight="10"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="10"
             android:orientation="vertical">
 
         <!-- Top Layout -->
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:layout_weight="1"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
                 android:orientation="horizontal">
 
             <!-- Placeholder -->
@@ -46,19 +47,19 @@
         </LinearLayout>
 
         <!-- Middle Layout -->
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:layout_weight="8"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="6"
                 android:orientation="horizontal">
 
             <!-- Placeholder -->
-            <LinearLayout android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+            <LinearLayout android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
 
-            <ScrollView android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="10">
+            <ScrollView android:layout_weight="10"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
 
                 <LinearLayout android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -271,53 +272,17 @@
             </ScrollView>
 
             <!-- Placeholder -->
-            <LinearLayout android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+            <LinearLayout android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
 
         </LinearLayout>
 
-        <!-- Bottom Layout legal notice -->
-        <LinearLayout android:layout_width="match_parent"
+        <!-- Bottom Layout Placeholder -->
+        <LinearLayout android:layout_weight="1"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="2"
-                android:orientation="vertical">
-
-            <!-- Placeholder -->
-            <LinearLayout android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-
-            <LinearLayout android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="10"
-                    android:orientation="horizontal">
-                <!-- Placeholder -->
-                <LinearLayout android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1" />
-
-                <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="10"
-                        android:text="LEGAL NOTICE BS"
-                        android:textSize="20sp"/>
-
-                <!-- Placeholder -->
-                <LinearLayout android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1" />
-
-            </LinearLayout>
-
-            <!-- Placeholder -->
-            <LinearLayout android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-
-
-        </LinearLayout>
+                android:orientation="vertical" />
 
     </LinearLayout>
 

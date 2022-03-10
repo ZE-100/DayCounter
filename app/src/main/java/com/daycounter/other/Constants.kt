@@ -19,7 +19,10 @@ class Constants {
 
 class Strings {
     companion object Factory {
-        const val INVALID_INPUT = "Invalid input!"
+        const val INVALID_INPUT_DAY = "Please choose a valid day \n (1–31)"
+        const val INVALID_INPUT_MONTH = "Please choose a valid month \n (1 – 12)"
+        const val INVALID_INPUT_YEAR = "Counter can\'t start \n in future"
+        const val FILL_IN_ALL_FIELDS = "Please fill in all fields"
     }
 }
 

@@ -43,11 +43,11 @@ class SettingsFragment : Fragment() {
     private fun navBtnBinding() {
         //TODO: Change icon colour
         binding.navigationButtons.gotoStartButton.setOnClickListener {
-            findNavController().navigate(R.id.action_SettingsFragment_to_StartFragment)
+            findNavController().navigate(R.id.action_settings_to_start)
         }
 
         binding.navigationButtons.gotoCountersButton.setOnClickListener {
-            findNavController().navigate(R.id.action_SettingsFragment_to_CountersFragment)
+            findNavController().navigate(R.id.action_settings_to_reminders)
         }
     }
 

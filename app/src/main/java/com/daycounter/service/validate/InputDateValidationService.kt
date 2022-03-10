@@ -1,20 +1,45 @@
 package com.daycounter.service.validate
 
 import com.daycounter.other.Constants
+import com.daycounter.other.Snackbar
 import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 
 class InputDateValidationService {
 
-    fun validate(date: String): Boolean {
-        try {
-            val sdf = SimpleDateFormat(Constants.DATE_FORMAT, Locale.GERMANY)
-            sdf.parse(date)
-        } catch(e: Exception) {
-            e.printStackTrace()
-            return false
+    fun validate(type: Int, inputDate: String): Boolean {
+
+        var date: Int = 0
+        val currentYear = Calendar.getInstance().get(Calendar.YEAR)
+
+        if (type != 3) {
+            try {
+                date = Integer.parseInt(inputDate)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                return false
+            }
         }
-        return true
+
+        return when (type) {
+            0 -> date in 1..31
+            1 -> date in 1..12
+            2 -> date in 0..currentYear
+            3 -> checkSdf(inputDate)
+            else -> false
+        }
+    }
+
+    private fun checkSdf(inputDate: String): Boolean {
+        return try {
+            val sdf = SimpleDateFormat(Constants.DATE_FORMAT)
+            sdf.parse(inputDate)
+
+            true
+        } catch (e: Exception) {
+            e.printStackTrace()
+            false
+        }
     }
 }
