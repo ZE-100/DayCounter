@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.daycounter.R
-import com.daycounter.activity.MainActivity
+import com.daycounter.MainActivity
 import com.daycounter.databinding.FragmentSettingsBinding
 import com.daycounter.other.Constants
 import com.daycounter.service.data.DataHandlingService

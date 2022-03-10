@@ -1,4 +1,4 @@
-package com.daycounter.activity
+package com.daycounter
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -7,11 +7,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import com.daycounter.R
 import com.daycounter.databinding.ActivityMainBinding
 import com.daycounter.other.Constants
 import com.daycounter.service.data.DataHandlingService

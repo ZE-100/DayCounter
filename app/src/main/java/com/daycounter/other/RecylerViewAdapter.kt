@@ -1,12 +1,12 @@
 package com.daycounter.other
 
-import android.R
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.daycounter.R
 import com.daycounter.blueprint.Reminder
 
 class RecyclerViewAdapter(private val context: Context?, remindersIn: List<Reminder>) :
@@ -31,7 +31,7 @@ class RecyclerViewAdapter(private val context: Context?, remindersIn: List<Remin
 
         holder.titleView.text = Reminder.title
         holder.descriptionView.text = Reminder.description
-        holder.thumbnailView.setImageResource(R.drawable.alert_dark_frame)
+        holder.thumbnailView.setImageResource(R.drawable.wallpuper)
         holder.dueDateView.text = Reminder.dueDate.toString()
     }
 
