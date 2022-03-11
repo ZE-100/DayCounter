@@ -1,4 +1,4 @@
-package com.daycounter.blueprint
+package com.daycounter.dataclass
 
 import java.util.*
 

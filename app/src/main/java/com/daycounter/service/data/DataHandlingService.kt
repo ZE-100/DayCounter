@@ -1,9 +1,9 @@
 package com.daycounter.service.data
 
 import android.content.SharedPreferences
-import com.daycounter.blueprint.Counter
-import com.daycounter.other.Constants
-import com.daycounter.other.Preferences
+import com.daycounter.dataclass.Counter
+import com.daycounter.other.enum.Constants
+import com.daycounter.other.enum.Preferences
 import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*

@@ -1,4 +1,4 @@
-package com.daycounter.other
+package com.daycounter.other.enum
 
 enum class TranslationType {
 

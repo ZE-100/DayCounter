@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.daycounter.R
-import com.daycounter.blueprint.Counter
+import com.daycounter.dataclass.Counter
 import com.daycounter.databinding.FragmentStartBinding
-import com.daycounter.other.Constants
-import com.daycounter.other.ProgressGetter
-import com.daycounter.other.TranslationType
-import com.daycounter.service.calculation.GetDateDifferenceService
+import com.daycounter.other.enum.Constants
+import com.daycounter.other.enum.ProgressGetter
+import com.daycounter.other.enum.TranslationType
+import com.daycounter.service.date.DateDifferenceService
 
 class StartFragment : Fragment() {
 
@@ -56,7 +56,7 @@ class StartFragment : Fragment() {
     }
 
     private fun updateMainCounter(mainCounter: Counter?) {
-        val dateDiff = GetDateDifferenceService()
+        val dateDiff = DateDifferenceService()
 
         val days = dateDiff.getDateDifference(mainCounter?.startDate, TranslationType.DAYS)
         val progress = (100 / ProgressGetter.get(days)) * days

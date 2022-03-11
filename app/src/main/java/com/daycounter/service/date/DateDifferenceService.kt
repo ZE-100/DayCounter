@@ -1,12 +1,10 @@
-package com.daycounter.service.calculation
+package com.daycounter.service.date
 
-import com.daycounter.other.TranslationType
-import com.daycounter.other.TranslationType.*
-import java.text.ParseException
-import java.text.SimpleDateFormat
+import com.daycounter.other.enum.TranslationType
+import com.daycounter.other.enum.TranslationType.*
 import java.util.*
 
-class GetDateDifferenceService {
+class DateDifferenceService {
 
     fun getDateDifference(counterStartDate: Date?, type: TranslationType): Long {
         try {

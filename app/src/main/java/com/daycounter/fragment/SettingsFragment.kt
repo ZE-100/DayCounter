@@ -9,10 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.daycounter.R
-import com.daycounter.MainActivity
 import com.daycounter.databinding.FragmentSettingsBinding
-import com.daycounter.other.Constants
+import com.daycounter.other.enum.Constants
 import com.daycounter.service.data.DataHandlingService
+import com.daycounter.service.notification.CreateNotificationService
 
 class SettingsFragment : Fragment() {
 
@@ -20,6 +20,7 @@ class SettingsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val handler = DataHandlingService()
+    private val notification = CreateNotificationService()
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -93,8 +94,7 @@ class SettingsFragment : Fragment() {
     }
     private fun sendTestNotification() {
         if (Constants.ENABLE_NOTIFICATIONS)
-            (activity as MainActivity).createNewNotification("You did it!",
-                "You just enabled anniversary notifications")
+            notification.new(context!!,  "You did it!", "You just enabled anniversary notifications")
     }
 
     override fun onDestroyView() {

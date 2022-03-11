@@ -1,13 +1,14 @@
-package com.daycounter.other
+package com.daycounter.other.enum
 
 import android.view.View
-import com.daycounter.blueprint.Counter
+import com.daycounter.dataclass.Counter
 import com.google.android.material.snackbar.Snackbar
 
 class Constants {
     companion object Factory {
         const val DATE_FORMAT = "dd-MM-yyyy-HH-mm-ss"
         const val USER_PREFERENCES = "user-preferences"
+        const val REMINDERS = "reminders"
         const val ANNIVERSARY_CHANNEL_ID = 1L
         var MAIN_COUNTER: Counter? = null
         // Setting preferences
@@ -28,6 +29,7 @@ class Strings {
 
 class Preferences {
     companion object Factory {
+        const val REMINDERS_LIST = "reminders-list"
         const val PERSON_ONE = "person-one"
         const val PERSON_TWO = "person-two"
         const val DATE_ONE = "start-date"

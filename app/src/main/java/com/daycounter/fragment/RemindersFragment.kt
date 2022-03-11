@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.daycounter.R
-import com.daycounter.blueprint.Reminder
+import com.daycounter.dataclass.Reminder
 import com.daycounter.databinding.FragmentRemindersBinding
-import com.daycounter.other.RecyclerViewAdapter
+import com.daycounter.other.custom.RecyclerViewAdapter
 import java.util.*
 import androidx.recyclerview.widget.LinearLayoutManager
 
@@ -37,7 +37,7 @@ class RemindersFragment : Fragment() {
         }
 
         binding.navigationButtons.gotoSettingsButton.setOnClickListener {
-            findNavController().navigate(R.id.action_counters_to_settings)
+            findNavController().navigate(R.id.action_reminders_to_settings)
         }
 
         createRecyclerView()
