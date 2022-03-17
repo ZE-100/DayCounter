@@ -9,7 +9,6 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
 
-
 class SaveReminderService(context: Context) {
 
     private val sharedPreferences: SharedPreferences =
@@ -23,7 +22,7 @@ class SaveReminderService(context: Context) {
         set(Preferences.REMINDERS_LIST, json)
     }
 
-    operator fun set(key: String?, value: String?) {
+    private operator fun set(key: String?, value: String?) {
         editor.putString(key, value)
         editor.commit()
     }

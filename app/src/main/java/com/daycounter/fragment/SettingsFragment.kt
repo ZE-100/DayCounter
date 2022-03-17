@@ -33,8 +33,8 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        handler.loadData(activity!!
-            .getSharedPreferences(Constants.USER_PREFERENCES, Context.MODE_PRIVATE))
+        handler.loadData(this.context!!,
+            activity!!.getSharedPreferences(Constants.USER_PREFERENCES, Context.MODE_PRIVATE))
 
         navBtnBinding()
         settingBtnBinding()
@@ -89,7 +89,7 @@ class SettingsFragment : Fragment() {
     }
 
     private fun savePreferences() {
-        handler.saveData(this.activity!!.getSharedPreferences(Constants.USER_PREFERENCES, Context.MODE_PRIVATE))
+        handler.saveData(this.context!!, this.activity!!.getSharedPreferences(Constants.USER_PREFERENCES, Context.MODE_PRIVATE))
 
     }
     private fun sendTestNotification() {

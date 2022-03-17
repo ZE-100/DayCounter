@@ -36,7 +36,7 @@ class DataHandlingService {
             // Main Counter data
                 val personOne = sharedPref.getString(Preferences.PERSON_ONE, null)
                 val personTwo = sharedPref.getString(Preferences.PERSON_TWO, null)
-                val startDate = sdf.parse(sharedPref.getString(Preferences.DATE_ONE, null))
+                val startDate = sdf.parse(sharedPref.getString(Preferences.DATE_ONE, null)!!)
             // End
 
             // Preferences data

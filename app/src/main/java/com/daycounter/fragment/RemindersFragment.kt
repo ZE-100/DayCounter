@@ -12,8 +12,7 @@ import com.daycounter.databinding.FragmentRemindersBinding
 import com.daycounter.other.custom.RecyclerViewAdapter
 import java.util.*
 import androidx.recyclerview.widget.LinearLayoutManager
-
-
+import com.daycounter.dataclass.Reminders
 
 
 class RemindersFragment : Fragment() {
@@ -44,19 +43,10 @@ class RemindersFragment : Fragment() {
     }
 
     private fun createRecyclerView() {
-        val reminders: List<Reminder> = getReminders()
-        binding.remindersRecycleView.adapter = RecyclerViewAdapter(context, reminders)
+        binding.remindersRecycleView.adapter = RecyclerViewAdapter(context, Reminders.getList())
 
         val linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.remindersRecycleView.layoutManager = linearLayoutManager
-    }
-
-    private fun getReminders(): List<Reminder> {
-        return listOf(
-            Reminder("Sananas", "Sosasdasdasd", 5, Date()),
-            Reminder("ads", "Sosasdasdadasdasd", 5, Date()),
-            Reminder("Sanaasdasnas", "Sosaasdasdsdasdasd", 5, Date()),
-            Reminder("asdas", "asdasd", 5, Date()))
     }
 
     override fun onDestroyView() {

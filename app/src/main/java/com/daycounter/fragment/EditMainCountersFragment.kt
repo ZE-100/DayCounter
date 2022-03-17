@@ -120,7 +120,7 @@ class EditMainCountersFragment : Fragment() {
             null
         }
 
-        handler.saveData(this.context!!.getSharedPreferences(Constants.USER_PREFERENCES, Context.MODE_PRIVATE))
+        handler.saveData(this.context, this.context!!.getSharedPreferences(Constants.USER_PREFERENCES, Context.MODE_PRIVATE))
     }
 
     override fun onDestroyView() {
