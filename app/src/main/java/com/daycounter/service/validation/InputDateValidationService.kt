@@ -2,7 +2,6 @@ package com.daycounter.service.validation
 
 import com.daycounter.other.enum.Constants
 import java.lang.Exception
-import java.text.SimpleDateFormat
 import java.util.*
 
 class InputDateValidationService {
@@ -32,9 +31,7 @@ class InputDateValidationService {
 
     private fun checkSdf(inputDate: String): Boolean {
         return try {
-            val sdf = SimpleDateFormat(Constants.DATE_FORMAT)
-            sdf.parse(inputDate)
-
+            Constants.SDF.parse(inputDate)
             true
         } catch (e: Exception) {
             e.printStackTrace()

@@ -60,13 +60,23 @@
             <!-- Main Content-->
             <LinearLayout android:layout_weight="10"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                 <androidx.recyclerview.widget.RecyclerView android:id="@+id/remindersRecycleView"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="0dp"
+                        android:layout_weight="10">
+
 
                 </androidx.recyclerview.widget.RecyclerView>
+
+                <Button android:id="@+id/addReminderButton"
+                        android:layout_height="69dp"
+                        android:layout_width="match_parent"
+                        android:fontFamily="@font/julius_sans_one"
+                        android:text="@string/add_reminder"
+                        android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -82,6 +92,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="vertical" />
+
+
 
     </LinearLayout>
 

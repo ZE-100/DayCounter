@@ -11,13 +11,25 @@
             tools:layout="@layout/fragment_start">
 
         <action android:id="@+id/action_start_to_reminders"
-                app:destination="@id/RemindersFragment" />
+                app:destination="@id/RemindersFragment"
+                app:enterAnim="@anim/slide_in_left"
+                app:exitAnim="@anim/slide_out_right"
+                app:popEnterAnim="@anim/slide_in_right"
+                app:popExitAnim="@anim/slide_out_left"/>
 
         <action android:id="@+id/action_start_to_settings"
-                app:destination="@id/SettingsFragment" />
+                app:destination="@id/SettingsFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
 
         <action android:id="@+id/action_start_to_editcounters"
-                app:destination="@id/EditCountersFragment" />
+                app:destination="@id/EditCountersFragment"
+                app:enterAnim="@anim/slide_in_bottom"
+                app:exitAnim="@anim/slide_out_top"
+                app:popEnterAnim="@anim/slide_in_top"
+                app:popExitAnim="@anim/slide_out_bottom"/>
     </fragment>
 
     <fragment android:id="@+id/RemindersFragment"
@@ -26,13 +38,25 @@
             tools:layout="@layout/fragment_reminders">
 
         <action android:id="@+id/action_reminders_to_start"
-                app:destination="@id/StartFragment" />
+                app:destination="@id/StartFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
 
         <action android:id="@+id/action_reminders_to_settings"
-                app:destination="@id/SettingsFragment" />
+                app:destination="@id/SettingsFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
 
         <action android:id="@+id/action_reminders_to_popup"
-                app:destination="@id/RecyclerViewPopup" />
+                app:destination="@id/RecyclerViewPopup"
+                app:enterAnim="@anim/slide_in_bottom"
+                app:exitAnim="@anim/slide_out_top"
+                app:popEnterAnim="@anim/slide_in_top"
+                app:popExitAnim="@anim/slide_out_bottom"/>
     </fragment>
 
     <fragment android:id="@+id/SettingsFragment"
@@ -41,10 +65,18 @@
             tools:layout="@layout/fragment_settings">
 
         <action android:id="@+id/action_settings_to_start"
-                app:destination="@id/StartFragment" />
+                app:destination="@id/StartFragment"
+                app:enterAnim="@anim/slide_in_left"
+                app:exitAnim="@anim/slide_out_right"
+                app:popEnterAnim="@anim/slide_in_right"
+                app:popExitAnim="@anim/slide_out_left" />
 
         <action android:id="@+id/action_settings_to_reminders"
-                app:destination="@id/RemindersFragment" />
+                app:destination="@id/RemindersFragment"
+                app:enterAnim="@anim/slide_in_left"
+                app:exitAnim="@anim/slide_out_right"
+                app:popEnterAnim="@anim/slide_in_right"
+                app:popExitAnim="@anim/slide_out_left" />
     </fragment>
 
     <fragment android:id="@+id/EditCountersFragment"
@@ -53,7 +85,11 @@
             tools:layout="@layout/fragment_edit_counters">
 
         <action android:id="@+id/action_editcounter_to_start"
-                app:destination="@id/StartFragment" />
+                app:destination="@id/StartFragment"
+                app:enterAnim="@anim/slide_in_bottom"
+                app:exitAnim="@anim/slide_out_top"
+                app:popEnterAnim="@anim/slide_in_top"
+                app:popExitAnim="@anim/slide_out_bottom" />
     </fragment>
 
     <fragment android:id="@+id/RecyclerViewPopup"
@@ -62,7 +98,15 @@
             tools:layout="@layout/fragment_popup_item">
 
         <action android:id="@+id/action_popup_to_reminders"
-                app:destination="@id/RemindersFragment" />
+                app:destination="@id/RemindersFragment"
+                app:enterAnim="@anim/slide_in_top"
+                app:exitAnim="@anim/slide_out_bottom"
+                app:popEnterAnim="@anim/slide_in_bottom"
+                app:popExitAnim="@anim/slide_out_top"/>
+        <argument
+                android:name="itemPos"
+                app:argType="integer"
+                android:defaultValue="-1"/>
     </fragment>
 
 </navigation>

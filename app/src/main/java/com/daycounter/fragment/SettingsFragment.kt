@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.daycounter.R
 import com.daycounter.databinding.FragmentSettingsBinding
 import com.daycounter.other.enum.Constants
-import com.daycounter.service.data.DataHandlingService
+import com.daycounter.service.data.SaveUserDataService
 import com.daycounter.service.notification.CreateNotificationService
 
 class SettingsFragment : Fragment() {
@@ -19,7 +19,7 @@ class SettingsFragment : Fragment() {
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
 
-    private val handler = DataHandlingService()
+    private val handler = SaveUserDataService()
     private val notification = CreateNotificationService()
 
     override fun onCreateView(inflater: LayoutInflater,
@@ -33,15 +33,14 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        handler.loadData(this.context!!,
-            activity!!.getSharedPreferences(Constants.USER_PREFERENCES, Context.MODE_PRIVATE))
+        handler.loadUserData(activity!!.getSharedPreferences(Constants.USER_PREFERENCES, Context.MODE_PRIVATE))
 
-        navBtnBinding()
-        settingBtnBinding()
+        generateNavBindings()
+        generateSettingBindings()
     }
 
     //TODO Do once, include this idk
-    private fun navBtnBinding() {
+    private fun generateNavBindings() {
         //TODO: Change icon colour
         binding.navigationButtons.gotoStartButton.setOnClickListener {
             findNavController().navigate(R.id.action_settings_to_start)
@@ -52,7 +51,7 @@ class SettingsFragment : Fragment() {
         }
     }
 
-    private fun settingBtnBinding() {
+    private fun generateSettingBindings() {
 
         binding.notificationSwitch.isChecked = Constants.ENABLE_NOTIFICATIONS
         binding.notificationSwitch.setOnCheckedChangeListener {
@@ -89,7 +88,7 @@ class SettingsFragment : Fragment() {
     }
 
     private fun savePreferences() {
-        handler.saveData(this.context!!, this.activity!!.getSharedPreferences(Constants.USER_PREFERENCES, Context.MODE_PRIVATE))
+        handler.saveUserData(this.activity!!.getSharedPreferences(Constants.USER_PREFERENCES, Context.MODE_PRIVATE))
 
     }
     private fun sendTestNotification() {

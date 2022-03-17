@@ -3,14 +3,19 @@ package com.daycounter.other.enum
 import android.view.View
 import com.daycounter.dataclass.Counter
 import com.google.android.material.snackbar.Snackbar
+import java.text.SimpleDateFormat
+import java.util.*
 
 class Constants {
     companion object Factory {
-        const val DATE_FORMAT = "dd-MM-yyyy-HH-mm-ss"
+        const val DATE_FORMAT = "dd-MM-yyyy"
+        var SDF = SimpleDateFormat(DATE_FORMAT, Locale.GERMANY)
+
         const val USER_PREFERENCES = "user-preferences"
         const val REMINDERS = "reminders"
         const val ANNIVERSARY_CHANNEL_ID = 1L
         var MAIN_COUNTER: Counter? = null
+        var REMINDER_COUNT: Long = 0
         // Setting preferences
         var ENABLE_NOTIFICATIONS = true
         var ENABLE_BACKGROUND_SERVICES = true
@@ -29,10 +34,13 @@ class Strings {
 
 class Preferences {
     companion object Factory {
-        const val REMINDERS_LIST = "reminders-list"
         const val PERSON_ONE = "person-one"
         const val PERSON_TWO = "person-two"
         const val DATE_ONE = "start-date"
+
+        const val REMINDERS_LIST = "reminders-list"
+        const val REMINDER_COUNT = "reminder-count"
+
         const val ENABLE_NOTIFICATIONS = "enable-notifications"
         const val ENABLE_BACKGROUND_SERVICES = "enable-background-services"
         const val ENABLE_DARKMODE = "enable-darkmode"

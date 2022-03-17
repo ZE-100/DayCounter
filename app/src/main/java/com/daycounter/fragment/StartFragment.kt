@@ -31,6 +31,11 @@ class StartFragment : Fragment() {
 
         updateMainCounter(getCounter())
 
+        generateNavBindings()
+        generateDefaultBindings()
+    }
+
+    private fun generateNavBindings() {
         binding.navigationButtons.gotoStartButton.setTextColor(
             activity!!.getApplication().getResources().getColor(R.color.nav_btn_focused))
 
@@ -41,7 +46,9 @@ class StartFragment : Fragment() {
         binding.navigationButtons.gotoSettingsButton.setOnClickListener {
             findNavController().navigate(R.id.action_start_to_settings)
         }
+    }
 
+    private fun generateDefaultBindings() {
         binding.progressCircle.setOnClickListener {
             findNavController().navigate(R.id.action_start_to_editcounters)
         }

@@ -8,11 +8,7 @@ class DateDifferenceService {
 
     fun getDateDifference(counterStartDate: Date?, type: TranslationType): Long {
         try {
-            val currentDate = Date()
-
-            val differenceInMillis = currentDate.time - counterStartDate!!.time
-
-            return translateToSeconds(differenceInMillis, type)
+            return translateToSeconds(Date().time - counterStartDate!!.time, type)
         } catch (e: Exception) {
             e.printStackTrace()
         }

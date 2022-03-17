@@ -37,6 +37,10 @@
     <string name="run_in_background_info">Needed in order to calculate certain dates!</string>
     <string name="enable_dark_mode_text">Switch light/dark theme</string>
     <string name="enable_dark_mode_info">Change the applications appearance!</string>
+
+    <!-- Misc buttons -->
+    <string name="add_reminder">Add Reminder</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

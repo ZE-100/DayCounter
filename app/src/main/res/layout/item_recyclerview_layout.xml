@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/recylcerview_item_layout"
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="300dp"
         android:layout_gravity="center"
         card_view:cardBackgroundColor="#00FF0000"
-        card_view:cardCornerRadius="10dp">
+        card_view:cardCornerRadius="10dp"
+        tools:context=".fragment.popup.PopupItemFragment">
+
 
         <LinearLayout android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -18,7 +21,7 @@
                         android:orientation="horizontal">
 
                         <ImageView android:layout_weight="1"
-                                android:id="@+id/reminderThumbnail"
+                                android:id="@+id/popupThumbnail"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:src="@color/purple_200" />
@@ -29,7 +32,7 @@
                                 android:orientation="vertical">
 
                                 <TextView android:layout_weight="5"
-                                        android:id="@+id/reminderTitle"
+                                        android:id="@+id/popupTitle"
                                         android:layout_width="match_parent"
                                         android:layout_height="0dp"
                                         android:fontFamily="@font/settings_button_font"
@@ -40,39 +43,33 @@
                                         android:padding="5dp"
                                         android:text="Title" />
 
-                                <TextView android:layout_weight="5"
-                                        android:id="@+id/reminderDescription"
+                                <TextView android:layout_weight="4"
+                                        android:id="@+id/popupDate"
                                         android:layout_width="match_parent"
                                         android:layout_height="0dp"
-                                        android:padding="5dp"
                                         android:fontFamily="@font/settings_button_font"
-                                        android:textSize="10sp"
+                                        android:textSize="20sp"
                                         android:textColor="@color/settings_text"
                                         android:gravity="center_vertical"
-                                        android:maxLength="90"
-                                        android:text="Description" />
+                                        android:maxLength="32"
+                                        android:padding="5dp"
+                                        android:text="Date" />
 
                         </LinearLayout>
 
                 </LinearLayout>
 
-                <LinearLayout android:layout_weight="2"
+                <TextView android:layout_weight="2"
+                        android:id="@+id/popupDescription"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:orientation="vertical">
+                        android:padding="15dp"
+                        android:fontFamily="@font/settings_button_font"
+                        android:textSize="20sp"
+                        android:textColor="@color/settings_text"
+                        android:maxLength="90"
+                        android:text="Description" />
 
-                        <TextView android:layout_width="match_parent"
-                                android:id="@+id/reminderDate"
-                                android:layout_height="0dp"
-                                android:layout_weight="5"
-                                android:padding="20dp"
-                                android:fontFamily="@font/settings_button_font"
-                                android:textSize="30sp"
-                                android:textColor="@color/settings_text"
-                                android:gravity="center_vertical"
-                                android:text="31. Septgust 2025" />
-
-                </LinearLayout>
 
         </LinearLayout>
 

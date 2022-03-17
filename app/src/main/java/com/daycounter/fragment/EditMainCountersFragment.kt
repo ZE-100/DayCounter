@@ -14,7 +14,7 @@ import com.daycounter.databinding.FragmentEditCountersBinding
 import com.daycounter.other.enum.Constants
 import com.daycounter.other.enum.Snackbar.Factory.displaySnackbar
 import com.daycounter.other.enum.Strings
-import com.daycounter.service.data.DataHandlingService
+import com.daycounter.service.data.SaveUserDataService
 import com.daycounter.service.validation.InputDateValidationService
 import java.lang.Exception
 import java.text.SimpleDateFormat
@@ -36,14 +36,10 @@ class EditMainCountersFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        fun generateDate(): String? {
-            val finalDate = String.format("%s-%s-%s-00-00-00",
-                                binding.inputDay.text.toString(),
-                                binding.inputMonth.text.toString(),
-                                binding.inputYear.text.toString())
+        createDateInputBindings()
+    }
 
-            return if (validateDate.validate(3, finalDate)) finalDate else ""
-        }
+    private fun createDateInputBindings() {
 
         binding.submitButtonTestData.setOnClickListener {
             saveNewMainCounter(null, null, null)
@@ -55,15 +51,10 @@ class EditMainCountersFragment : Fragment() {
                 saveNewMainCounter(binding.inputPersonOne.text.toString(), binding.inputPersonTwo.text.toString(), generateDate())
                 findNavController().navigate(R.id.action_editcounter_to_start)
             } else {
-                displaySnackbar(Strings.FILL_IN_ALL_FIELDS, view)
+                displaySnackbar(Strings.FILL_IN_ALL_FIELDS, view!!)
             }
         }
 
-        createDateInputBindings(view)
-    }
-
-    // TODO Make red glow and change snackbar to text
-    private fun createDateInputBindings(view: View) {
         binding.inputDay.doOnTextChanged {
             text, _, _, _ ->
                 if (!validateDate.validate(0, text.toString())) {
@@ -97,6 +88,15 @@ class EditMainCountersFragment : Fragment() {
         }
     }
 
+    private fun generateDate(): String {
+        val finalDate = String.format("%s-%s-%s",
+            binding.inputDay.text.toString(),
+            binding.inputMonth.text.toString(),
+            binding.inputYear.text.toString())
+
+        return if (validateDate.validate(3, finalDate)) finalDate else ""
+    }
+
     private fun checkEmptyFields(): Boolean {
         return binding.inputDay.text.toString().trim().isNotEmpty()
                 && binding.inputMonth.text.toString().trim().isNotEmpty()
@@ -107,20 +107,20 @@ class EditMainCountersFragment : Fragment() {
 
     private fun saveNewMainCounter(personOne: String?, personTwo: String?, date: String?) {
 
-        val sdf = SimpleDateFormat(Constants.DATE_FORMAT, Locale.GERMANY)
-        val handler = DataHandlingService()
+        val handler = SaveUserDataService()
 
         Constants.MAIN_COUNTER = try {
             if (personOne != null)
-                Counter(personOne, personTwo, sdf.parse(date))
+                Counter(personOne, personTwo, Constants.SDF.parse(date!!))
             else //Test data
-                Counter("Person One", "Person Two", sdf.parse("27-12-2019-00-00-00"))
+                Counter("Person One", "Person Two", Constants.SDF.parse("27-12-2019-00-00-00"))
         } catch (e: Exception) {
             e.printStackTrace()
             null
         }
 
-        handler.saveData(this.context, this.context!!.getSharedPreferences(Constants.USER_PREFERENCES, Context.MODE_PRIVATE))
+        handler.saveUserData(this.context!!
+            .getSharedPreferences(Constants.USER_PREFERENCES, Context.MODE_PRIVATE))
     }
 
     override fun onDestroyView() {

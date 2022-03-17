@@ -1,5 +1,7 @@
 package com.daycounter.fragment
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,13 +15,18 @@ import com.daycounter.other.custom.RecyclerViewAdapter
 import java.util.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.daycounter.dataclass.Reminders
+import com.daycounter.other.enum.Constants
+import com.daycounter.other.enum.Preferences
+import com.daycounter.service.data.SaveReminderService
+import com.daycounter.service.data.SaveUserDataService
 
 
 class RemindersFragment : Fragment() {
 
     private var _binding: FragmentRemindersBinding? = null
-
     private val binding get() = _binding!!
+
+    private val dataHandler = SaveUserDataService()
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -31,6 +38,13 @@ class RemindersFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        generateNavBindings()
+        generateDefaultBindings()
+
+        createRecyclerView()
+    }
+
+    private fun generateNavBindings() {
         binding.navigationButtons.gotoStartButton.setOnClickListener {
             findNavController().navigate(R.id.action_reminders_to_start)
         }
@@ -38,8 +52,14 @@ class RemindersFragment : Fragment() {
         binding.navigationButtons.gotoSettingsButton.setOnClickListener {
             findNavController().navigate(R.id.action_reminders_to_settings)
         }
+    }
 
-        createRecyclerView()
+    @SuppressLint("NotifyDataSetChanged")
+    private fun generateDefaultBindings() {
+        binding.addReminderButton.setOnClickListener {
+            binding.remindersRecycleView.adapter!!.notifyDataSetChanged()
+            findNavController().navigate(R.id.action_reminders_to_popup)
+        }
     }
 
     private fun createRecyclerView() {

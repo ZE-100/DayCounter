@@ -8,7 +8,8 @@
         android:layout_gravity="center"
         card_view:cardBackgroundColor="#00FF0000"
         card_view:cardCornerRadius="10dp"
-        tools:context=".fragment.popup.PopupItemFragment">
+        tools:context=".fragment.popup.PopupItemFragment"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
 <LinearLayout android:layout_width="match_parent"
@@ -31,29 +32,72 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                <EditText android:layout_weight="5"
-                        android:id="@+id/popupTitle"
+                <LinearLayout android:layout_weight="5"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:fontFamily="@font/settings_button_font"
-                        android:textSize="20sp"
-                        android:textColor="@color/settings_text"
-                        android:gravity="center_vertical"
-                        android:maxLength="32"
-                        android:padding="5dp"
-                        android:text="Title" />
+                        android:orientation="horizontal">
 
-                <EditText android:layout_weight="5"
-                        android:id="@+id/popupDescription"
-                        android:layout_width="match_parent"
+                    <EditText android:layout_weight="5"
+                            android:id="@+id/popupTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/settings_button_font"
+                            android:textSize="20sp"
+                            android:textColor="@color/settings_text"
+                            android:gravity="center_vertical"
+                            android:maxLength="32"
+                            android:padding="5dp"
+                            android:text="Title" />
+
+                    <Button android:id="@+id/deleteReminderButton"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            app:icon="@drawable/delete_icon"
+                            app:iconGravity="textStart"
+                            style="?android:attr/buttonBarButtonStyle"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:padding="5dp"
-                        android:fontFamily="@font/settings_button_font"
-                        android:textSize="10sp"
-                        android:textColor="@color/settings_text"
-                        android:gravity="center_vertical"
-                        android:maxLength="90"
-                        android:text="Description" />
+                        android:layout_weight="3"
+                        android:orientation="horizontal">
+
+                    <EditText android:id="@+id/inputDay"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:maxLength="2"
+                            android:hint="Day"
+                            android:ellipsize="start"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:autofillHints="no" />
+
+                    <EditText android:id="@+id/inputMonth"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:maxLength="2"
+                            android:hint="Month"
+                            android:ellipsize="start"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:autofillHints="no" />
+
+                    <EditText android:id="@+id/inputYear"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:maxLength="4"
+                            android:hint="Year"
+                            android:ellipsize="start"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:autofillHints="no" />
+
+                </LinearLayout>
+
 
             </LinearLayout>
 
@@ -64,16 +108,16 @@
                 android:layout_height="0dp"
                 android:orientation="vertical">
 
-            <EditText android:layout_width="match_parent"
-                    android:id="@+id/popupDate"
+            <EditText android:layout_weight="5"
+                    android:id="@+id/popupDescription"
+                    android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="5"
-                    android:padding="20dp"
+                    android:padding="5dp"
                     android:fontFamily="@font/settings_button_font"
-                    android:textSize="30sp"
+                    android:textSize="20sp"
                     android:textColor="@color/settings_text"
-                    android:gravity="center_vertical"
-                    android:text="31. Septgust 2025" />
+                    android:maxLength="90"
+                    android:text="Description" />
 
         </LinearLayout>
 

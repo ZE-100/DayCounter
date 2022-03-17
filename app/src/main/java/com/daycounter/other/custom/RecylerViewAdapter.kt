@@ -1,24 +1,15 @@
 package com.daycounter.other.custom
 
-import android.app.Dialog
 import android.content.Context
-import android.content.Intent
-import android.graphics.drawable.ColorDrawable
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.daycounter.R
 import com.daycounter.dataclass.Reminder
-import com.daycounter.fragment.popup.PopupItemFragment
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import com.daycounter.dataclass.Counter
-
+import com.daycounter.fragment.RemindersFragmentDirections
+import com.daycounter.other.enum.Constants
 
 class RecyclerViewAdapter(private val context: Context?, remindersIn: List<Reminder>) :
     RecyclerView.Adapter<ReminderViewHolder>() {
@@ -42,8 +33,8 @@ class RecyclerViewAdapter(private val context: Context?, remindersIn: List<Remin
 
         holder.titleView.text = reminder.title
         holder.descriptionView.text = reminder.description
-        holder.thumbnailView.setImageResource(R.drawable.wallpuper)
-        holder.dueDateView.text = reminder.dueDate.toString()
+        holder.thumbnailView.setImageResource(R.drawable.heart_shape)
+        holder.dueDateView.text = String.format("%s", Constants.SDF.format(reminder.dueDate))
     }
 
     override fun getItemCount(): Int {
@@ -54,14 +45,6 @@ class RecyclerViewAdapter(private val context: Context?, remindersIn: List<Remin
         val itemPos = recyclerView.getChildLayoutPosition(itemView)
         val reminder: Reminder = reminders[itemPos]
 
-        val intent = Intent(context, PopupItemFragment::class.java)
-        intent.putExtra("popupTitle", reminder.title)
-        intent.putExtra("popupDescription", reminder.description)
-        intent.putExtra("popupThumbnail", reminder.thumbnail)
-        intent.putExtra("popupDueDate", reminder.thumbnail)
-        context!!.startActivity(intent)
-
-        findNavController(itemView).navigate(R.id.action_reminders_to_popup)
+        findNavController(itemView).navigate(RemindersFragmentDirections.actionRemindersToPopup(itemPos))
     }
-
 }
