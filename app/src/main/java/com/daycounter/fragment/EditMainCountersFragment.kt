@@ -37,15 +37,13 @@ class EditMainCountersFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         createDateInputBindings()
+        if (Constants.MAIN_COUNTER != null)
+            fillInData(Constants.MAIN_COUNTER!!)
     }
 
     private fun createDateInputBindings() {
 
-        binding.submitButtonTestData.setOnClickListener {
-            saveNewMainCounter(null, null, null)
-            findNavController().navigate(R.id.action_editcounter_to_start)
-        }
-
+        binding.submitButton.isEnabled = false
         binding.submitButton.setOnClickListener {
             if (checkEmptyFields()) {
                 saveNewMainCounter(binding.inputPersonOne.text.toString(), binding.inputPersonTwo.text.toString(), generateDate())
@@ -56,13 +54,26 @@ class EditMainCountersFragment : Fragment() {
             }
         }
 
+        binding.inputPersonOne.doOnTextChanged {
+            _,_,_,_ ->
+            if (checkEmptyFields())
+                binding.submitButton.isEnabled = true
+        }
+
+        binding.inputPersonTwo.doOnTextChanged {
+                _,_,_,_ ->
+            if (checkEmptyFields())
+                binding.submitButton.isEnabled = true
+        }
+
         binding.inputDay.doOnTextChanged {
             text, _, _, _ ->
                 if (!validateDate.validate(0, text.toString())) {
                     binding.inputDay.error = Strings.INVALID_INPUT_DAY
                     binding.submitButton.isEnabled = false
                 } else {
-                    binding.submitButton.isEnabled = true
+                    if (checkEmptyFields())
+                        binding.submitButton.isEnabled = true
                     if (text?.length == 2) binding.inputMonth.requestFocus()
                 }
         }
@@ -73,7 +84,8 @@ class EditMainCountersFragment : Fragment() {
                     binding.inputMonth.error = Strings.INVALID_INPUT_MONTH
                     binding.submitButton.isEnabled = false
                 } else {
-                    binding.submitButton.isEnabled = true
+                    if (checkEmptyFields())
+                        binding.submitButton.isEnabled = true
                     if (text?.length == 2) binding.inputYear.requestFocus()
                 }
         }
@@ -84,9 +96,18 @@ class EditMainCountersFragment : Fragment() {
                 binding.inputYear.error = Strings.INVALID_INPUT_YEAR
                 binding.submitButton.isEnabled = false
             } else {
-                binding.submitButton.isEnabled = true
+                if (checkEmptyFields())
+                    binding.submitButton.isEnabled = true
             }
         }
+    }
+
+    private fun fillInData(counter: Counter) {
+        binding.inputPersonOne.setText(counter.personOne)
+        binding.inputPersonTwo.setText(counter.personTwo)
+        binding.inputDay.setText(String.format("%s", Constants.SDF.format(counter.startDate)).substring(0, 2))
+        binding.inputMonth.setText(String.format("%s", Constants.SDF.format(counter.startDate)).substring(3, 5))
+        binding.inputYear.setText(String.format("%s", Constants.SDF.format(counter.startDate)).substring(6, 10))
     }
 
     private fun generateDate(): String {
@@ -111,7 +132,7 @@ class EditMainCountersFragment : Fragment() {
         val handler = SaveUserDataService()
 
         Constants.MAIN_COUNTER = try {
-            if (personOne != null)
+            if (personOne != "")
                 Counter(personOne, personTwo, Constants.SDF.parse(date!!))
             else //Test data
                 Counter("Person One", "Person Two", Constants.SDF.parse("27-12-2019-00-00-00"))

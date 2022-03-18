@@ -7,9 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="settings_text">#FDBCBCBC</color>
-    <color name="button_text_color_default">#FDBCBCBC</color>
-    <color name="nav_btn_unfocused">#FDBCBCBC</color>
-    <color name="nav_btn_focused">#FDEAEAEA</color>
-    <color name="dark_background">#7A000000</color>
+
+    <color name="light_orange">#C8681F</color>
+
+    <color name="et_details">#ccffffff</color>
+    <color name="et_details_light">#1affffff</color>
+    <color name="et_details_medium">#66ffffff</color>
+    <color name="text_color">#66ffffff</color>
 </resources>

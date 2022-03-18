@@ -34,7 +34,7 @@
                         android:textSize="@dimen/navigation_button_text_size"
                         android:text="@string/goto_start_page_text"
                         style="?android:attr/buttonBarButtonStyle"
-                        android:textColor="@color/button_text_color_default"
+                        android:textColor="@color/et_details"
                         android:textStyle="bold|italic" />
 
                 <Button android:id="@+id/gotoSettingsButton"

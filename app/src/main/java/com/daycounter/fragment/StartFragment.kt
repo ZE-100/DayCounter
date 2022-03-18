@@ -11,13 +11,17 @@ import com.daycounter.dataclass.Counter
 import com.daycounter.databinding.FragmentStartBinding
 import com.daycounter.other.enum.Constants
 import com.daycounter.other.enum.ProgressGetter
+import com.daycounter.other.enum.Strings
 import com.daycounter.other.enum.TranslationType
 import com.daycounter.service.date.DateDifferenceService
+import com.google.android.material.snackbar.Snackbar
 
 class StartFragment : Fragment() {
 
     private var _binding: FragmentStartBinding? = null
     private val binding get() = _binding!!
+
+    private var easterEggCount: Int = 0
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -49,6 +53,8 @@ class StartFragment : Fragment() {
         binding.progressCircle.setOnClickListener {
             findNavController().navigate(R.id.action_start_to_editcounters)
         }
+
+
     }
 
     private fun getCounter(): Counter? {

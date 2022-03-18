@@ -11,156 +11,195 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-    <!-- Whole page -->
-    <LinearLayout android:layout_width="match_parent"
+    <LinearLayout android:layout_weight="10"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="10"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-        <!-- Top part page -->
-        <LinearLayout android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="5"
+        <LinearLayout android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+        <!-- Whole page -->
+        <LinearLayout  android:layout_weight="10"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
-
+            <!-- Top part page -->
             <LinearLayout android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="5"
                     android:orientation="vertical">
 
-                <TextView android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/clicker_script"
-                        android:textColor="@color/button_text_color_default"
-                        android:textStyle="bold|italic"
-                        android:textSize="30sp"
-                        android:text="Create counter"
-                        android:textAlignment="center" />
+
+                <LinearLayout android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="2"
+                        android:orientation="vertical">
+
+                    <TextView android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/clicker_script"
+                            android:textColor="@color/et_details"
+                            android:textSize="60sp"
+                            android:text="Edit Counter"
+                            android:textAlignment="center" />
+
+                </LinearLayout>
+
+                <!-- Image & Name upload area -->
+                <LinearLayout android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="8"
+                        android:orientation="vertical">
+
+                    <LinearLayout android:layout_weight="5"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp">
+
+                        <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/heart_shape" />
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_weight="1.5"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:orientation="horizontal">
+
+                        <EditText android:id="@+id/inputPersonOne"
+                                android:layout_width="0dp"
+                                android:layout_height="60dp"
+                                android:layout_margin="10dp"
+                                android:layout_weight="1"
+                                android:maxLength="16"
+                                android:maxLines="1"
+                                android:fontFamily="@font/settings_button_font"
+                                android:lines="1"
+                                android:singleLine="true"
+                                android:nextFocusDown="@+id/inputPersonTwo"
+                                android:background="@drawable/background_et"
+                                android:textColor="@color/et_details"
+                                android:textColorHint="@color/et_details_medium"
+                                android:hint="@string/input_name_person_one"
+                                android:ellipsize="start"
+                                android:gravity="center"
+                                android:autofillHints="no" />
+
+                        <EditText android:id="@+id/inputPersonTwo"
+                                android:layout_width="0dp"
+                                android:layout_height="60dp"
+                                android:layout_weight="1"
+                                android:maxLines="1"
+                                android:lines="1"
+                                android:nextFocusDown="@+id/inputDay"
+                                android:fontFamily="@font/settings_button_font"
+                                android:singleLine="true"
+                                android:layout_margin="10dp"
+                                android:background="@drawable/background_et"
+                                android:maxLength="16"
+                                android:textColor="@color/et_details"
+                                android:textColorHint="@color/et_details_medium"
+                                android:hint="@string/input_name_person_two"
+                                android:ellipsize="start"
+                                android:gravity="center"
+                                android:autofillHints="no" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="2"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                    <EditText android:id="@+id/inputDay"
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="3"
+                            android:layout_margin="10dp"
+                            android:nextFocusDown="@+id/inputMonth"
+                            android:maxLength="2"
+                            android:background="@drawable/background_et"
+                            android:fontFamily="@font/settings_button_font"
+                            android:textColor="@color/et_details"
+                            android:textColorHint="@color/et_details_medium"
+                            android:hint="Day"
+                            android:ellipsize="start"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:autofillHints="no" />
+
+                    <EditText android:id="@+id/inputMonth"
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="3"
+                            android:layout_margin="10dp"
+                            android:nextFocusDown="@+id/inputYear"
+                            android:maxLength="2"
+                            android:background="@drawable/background_et"
+                            android:textColor="@color/et_details"
+                            android:fontFamily="@font/settings_button_font"
+                            android:textColorHint="@color/et_details_medium"
+                            android:hint="Month"
+                            android:ellipsize="start"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:autofillHints="no" />
+
+                    <EditText android:id="@+id/inputYear"
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="10dp"
+                            android:layout_weight="3"
+                            android:background="@drawable/background_et"
+                            android:maxLength="4"
+                            android:fontFamily="@font/settings_button_font"
+                            android:textColor="@color/et_details"
+                            android:textColorHint="@color/et_details_medium"
+                            android:hint="Year"
+                            android:ellipsize="start"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:autofillHints="no" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
-            <!-- Image & Name upload area -->
+            <!-- Bottom part page -->
             <LinearLayout android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="8"
+                    android:layout_weight="1"
                     android:orientation="vertical">
 
-                <!-- Image upload -->
-                <LinearLayout android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-                    <Button android:text="Replace with image upload"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:id="@+id/button"
-                            android:layout_weight="1" />
-
-                    <Button android:text="Replace with image upload"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:id="@+id/button2"
-                            android:layout_weight="1" />
-
-                </LinearLayout>
-
-                <LinearLayout android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-                    <EditText android:id="@+id/inputPersonOne"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:maxLength="16"
-                            android:hint="@string/input_name_person_one"
-                            android:ellipsize="start"
-                            android:gravity="center"
-                            android:autofillHints="no" />
-
-                    <EditText android:id="@+id/inputPersonTwo"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:maxLength="16"
-                            android:hint="@string/input_name_person_two"
-                            android:ellipsize="start"
-                            android:gravity="center"
-                            android:autofillHints="no" />
-
-                </LinearLayout>
+                <Button android:id="@+id/submitButton"
+                        android:layout_height="69dp"
+                        android:layout_width="match_parent"
+                        android:textColor="@color/et_details"
+                        android:background="@drawable/background_button"
+                        android:fontFamily="@font/settings_button_font"
+                        android:layout_margin="10dp"
+                        android:text="@string/confirm_text"
+                        android:textAllCaps="false"
+                        android:textSize="20sp" />
 
             </LinearLayout>
 
+            <!-- Placeholder -->
             <LinearLayout android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="3"
-                    android:orientation="horizontal">
-
-                <EditText android:id="@+id/inputDay"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3"
-                        android:maxLength="2"
-                        android:hint="Day"
-                        android:ellipsize="start"
-                        android:gravity="center"
-                        android:inputType="number"
-                        android:autofillHints="no" />
-
-                <EditText android:id="@+id/inputMonth"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3"
-                        android:maxLength="2"
-                        android:hint="Month"
-                        android:ellipsize="start"
-                        android:gravity="center"
-                        android:inputType="number"
-                        android:autofillHints="no" />
-
-                <EditText android:id="@+id/inputYear"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3"
-                        android:maxLength="4"
-                        android:hint="Year"
-                        android:ellipsize="start"
-                        android:gravity="center"
-                        android:inputType="number"
-                        android:autofillHints="no" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <!-- Bottom part page -->
-        <LinearLayout android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="2"
-                android:orientation="vertical">
-
-            <Button android:id="@+id/submitButtonTestData"
-                    android:text="Submit testdata"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-
-            <Button android:id="@+id/submitButton"
-                    android:text="Submit"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
                     android:layout_weight="1" />
 
         </LinearLayout>
 
-        <!-- Placeholder -->
-        <LinearLayout android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+        <LinearLayout android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
 
     </LinearLayout>
 

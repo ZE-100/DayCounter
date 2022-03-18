@@ -27,8 +27,9 @@
     <string name="constant_channel_desc">Enable constant silent notification, which displays your current status</string>
 
     <!-- Change main counter -->
-    <string name="input_name_person_one">Your name</string>
-    <string name="input_name_person_two">Your SO\'s name</string>
+    <string name="input_name_person_one">Name of you</string>
+    <string name="input_name_person_two">Name of SO</string>
+    <string name="confirm_text">Apply</string>
 
     <!--Strings for settings buttons-->
     <string name="enable_notifications_text">Enable notifications</string>
@@ -43,4 +44,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="save_text">Save</string>
+    <string name="cancel_text">Cancel</string>
+    <string name="description_text">Write a description for your reminder</string>
+    <string name="title_text">Enter a title</string>
 </resources>

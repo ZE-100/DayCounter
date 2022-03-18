@@ -8,13 +8,17 @@
         android:layout_gravity="center"
         card_view:cardBackgroundColor="#00FF0000"
         card_view:cardCornerRadius="10dp"
+        android:outlineAmbientShadowColor="@color/teal_200"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
         tools:context=".fragment.popup.PopupItemFragment"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
 <LinearLayout android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+ >
 
         <LinearLayout android:layout_weight="2"
                 android:layout_width="match_parent"
@@ -25,7 +29,9 @@
                     android:id="@+id/popupThumbnail"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:src="@color/purple_200" />
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/heart_shape" />
 
             <LinearLayout android:layout_weight="2"
                     android:layout_width="0dp"
@@ -37,37 +43,47 @@
                         android:layout_height="0dp"
                         android:orientation="horizontal">
 
-                    <EditText android:layout_weight="5"
-                            android:id="@+id/popupTitle"
+                    <EditText android:id="@+id/popupTitle"
                             android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:fontFamily="@font/settings_button_font"
-                            android:textSize="20sp"
-                            android:textColor="@color/settings_text"
-                            android:gravity="center_vertical"
-                            android:maxLength="32"
-                            android:padding="5dp"
-                            android:text="Title" />
+                            android:layout_height="50dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginStart="5dp"
 
-                    <Button android:id="@+id/deleteReminderButton"
+                            android:layout_marginTop="15dp"
                             android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            app:icon="@drawable/delete_icon"
-                            app:iconGravity="textStart"
-                            style="?android:attr/buttonBarButtonStyle"/>
+                            android:maxLength="16"
+                            android:maxLines="1"
+                            android:fontFamily="@font/settings_button_font"
+                            android:lines="1"
+                            android:singleLine="true"
+                            android:nextFocusDown="@+id/inputPersonTwo"
+                            android:background="@drawable/background_et"
+                            android:textColor="@color/et_details"
+                            android:textColorHint="@color/et_details_medium"
+                            android:hint="@string/title_text"
+                            android:ellipsize="start"
+                            android:gravity="center"
+                            android:autofillHints="no" />
+
+
                 </LinearLayout>
 
                 <LinearLayout android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="3"
+                        android:layout_weight="4"
                         android:orientation="horizontal">
 
                     <EditText android:id="@+id/inputDay"
                             android:layout_width="0dp"
-                            android:layout_height="match_parent"
+                            android:layout_height="50dp"
                             android:layout_weight="3"
+                            android:layout_margin="5dp"
+                            android:nextFocusDown="@+id/inputMonth"
                             android:maxLength="2"
+                            android:background="@drawable/background_et"
+                            android:fontFamily="@font/settings_button_font"
+                            android:textColor="@color/et_details"
+                            android:textColorHint="@color/et_details_medium"
                             android:hint="Day"
                             android:ellipsize="start"
                             android:gravity="center"
@@ -76,9 +92,15 @@
 
                     <EditText android:id="@+id/inputMonth"
                             android:layout_width="0dp"
-                            android:layout_height="match_parent"
+                            android:layout_height="50dp"
                             android:layout_weight="3"
+                            android:layout_margin="5dp"
+                            android:nextFocusDown="@+id/inputYear"
                             android:maxLength="2"
+                            android:background="@drawable/background_et"
+                            android:textColor="@color/et_details"
+                            android:fontFamily="@font/settings_button_font"
+                            android:textColorHint="@color/et_details_medium"
                             android:hint="Month"
                             android:ellipsize="start"
                             android:gravity="center"
@@ -87,9 +109,14 @@
 
                     <EditText android:id="@+id/inputYear"
                             android:layout_width="0dp"
-                            android:layout_height="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_margin="5dp"
                             android:layout_weight="3"
+                            android:background="@drawable/background_et"
                             android:maxLength="4"
+                            android:fontFamily="@font/settings_button_font"
+                            android:textColor="@color/et_details"
+                            android:textColorHint="@color/et_details_medium"
                             android:hint="Year"
                             android:ellipsize="start"
                             android:gravity="center"
@@ -97,6 +124,7 @@
                             android:autofillHints="no" />
 
                 </LinearLayout>
+
 
 
             </LinearLayout>
@@ -112,12 +140,17 @@
                     android:id="@+id/popupDescription"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_margin="10dp"
                     android:padding="5dp"
                     android:fontFamily="@font/settings_button_font"
                     android:textSize="20sp"
-                    android:textColor="@color/settings_text"
+                    android:background="@drawable/background_et"
+                    android:textColor="@color/et_details"
+                    android:textColorHint="@color/et_details_medium"
+                    android:hint="@string/description_text"
                     android:maxLength="90"
-                    android:text="Description" />
+                    android:ellipsize="start"
+                    android:autofillHints="no"/>
 
         </LinearLayout>
 
@@ -126,24 +159,37 @@
                 android:layout_height="0dp"
                 android:orientation="horizontal">
 
+            <Button android:id="@+id/deleteReminderButton"
+                    android:layout_weight=".4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    app:icon="@drawable/delete_icon"
+                    android:background="@drawable/background_button"
+                    app:iconGravity="textStart"
+                    style="?android:attr/buttonBarButtonStyle"/>
+
             <Button android:id="@+id/cancelButton"
                     android:layout_height="match_parent"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/julius_sans_one"
-                    android:text="Cancel"
+                    android:textColor="@color/et_details"
+                    android:background="@drawable/background_button"
+                    android:fontFamily="@font/settings_button_font"
+                    android:layout_margin="10dp"
+                    android:text="@string/cancel_text"
+                    android:textAllCaps="false"
                     android:textSize="20sp" />
 
             <Button android:id="@+id/saveButton"
                     android:layout_height="match_parent"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:fontFamily="@font/julius_sans_one"
-                    android:text="Save"
+                    android:textColor="@color/et_details"
+                    android:background="@drawable/background_button"
+                    android:fontFamily="@font/settings_button_font"
+                    android:layout_margin="10dp"
+                    android:text="@string/save_text"
+                    android:textAllCaps="false"
                     android:textSize="20sp" />
         </LinearLayout>
 

@@ -25,75 +25,58 @@
                 android:layout_height="0dp" />
 
         <!-- Middle Layout -->
-        <LinearLayout
-                android:layout_width="match_parent"
+        <LinearLayout android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="6"
                 android:orientation="vertical">
 
-            <!-- Placeholder -->
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"/>
-
             <!-- Day counter as text Layout-->
             <com.google.android.material.progressindicator.CircularProgressIndicator
                     android:id="@+id/progressCircle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:indicatorSize="250dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    app:indicatorSize="300dp"
                     app:trackThickness="5dp"
                     android:progress="50"
                     android:layout_gravity="center_horizontal"
                     app:trackCornerRadius="10dp"
                     android:layout_weight="1"
-                    app:indicatorColor="@color/purple_500"
-                    app:trackColor="#E1B0FF" />
+                    app:indicatorColor="@color/purple_200"
+                    app:trackColor="@color/et_details_light" />
 
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1.4"
+                    android:layout_weight="0.5"
                     android:orientation="vertical">
 
-                <TextView
-                        android:layout_width="match_parent"
+                <TextView android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1.5"
+                        android:layout_weight="1"
                         android:fontFamily="@font/clicker_script"
-                        android:textColor="@color/button_text_color_default"
-                        android:textStyle="bold|italic"
-                        android:textSize="30sp"
+                        android:textColor="@color/et_details"
+                        android:textSize="40sp"
                         android:text="You've been together for"
-                        android:textAlignment="center" />
+                        android:gravity="center_horizontal" />
 
                 <TextView android:id="@+id/progressText"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="2"
+                        android:layout_weight="1"
                         android:fontFamily="@font/clicker_script"
-                        android:textColor="@color/button_text_color_default"
-                        android:textStyle="bold|italic"
+                        android:textColor="@color/et_details"
                         android:textSize="45sp"
                         android:text="300000 Days"
-                        android:textAlignment="center" />
+                        android:gravity="center_horizontal" />
             </LinearLayout>
 
         </LinearLayout>
 
         <!-- Bottom Layout -->
-        <LinearLayout
-                android:layout_width="match_parent"
+        <LinearLayout android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="2"
                 android:orientation="vertical">
-
-            <!-- Placeholder -->
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
 
             <LinearLayout
                     android:layout_width="match_parent"
@@ -122,15 +105,19 @@
                         <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
+                                android:scaleX="-1"
                                 android:layout_weight="2"
-                                app:srcCompat="@android:drawable/btn_star_big_off" />
+                                app:srcCompat="@drawable/heart_person_shape" />
 
-                        <TextView
-                                android:id="@+id/personOne"
+                        <TextView android:id="@+id/personOne"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:text="Person 1" />
+                                android:fontFamily="@font/settings_button_font"
+                                android:textSize="15sp"
+                                android:textColor="@color/et_details"
+                                android:gravity="center"
+                                android:text="WWWWWWWWWWWWWWWW" />
 
                     </LinearLayout>
 
@@ -138,14 +125,6 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
-
-                        <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_centerVertical="true"
-                                android:src="@drawable/heart_shape"
-                                 />
-
 
                     </LinearLayout>
 
@@ -155,11 +134,11 @@
                             android:layout_weight="2"
                             android:orientation="vertical">
 
-                        <ImageView
+                        <ImageView android:id="@+id/soButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="2"
-                                app:srcCompat="@android:drawable/btn_star_big_on" />
+                                app:srcCompat="@drawable/heart_person_shape" />
 
                         <TextView android:id="@+id/personTwo"
                                 android:layout_width="match_parent"
@@ -167,9 +146,9 @@
                                 android:layout_weight="1"
                                 android:fontFamily="@font/settings_button_font"
                                 android:textSize="15sp"
-                                android:textColor="@color/settings_text"
+                                android:textColor="@color/et_details"
                                 android:gravity="center"
-                                android:text="Test one" />
+                                android:text="WWWWWWWWWWWWWWWW" />
 
                     </LinearLayout>
 

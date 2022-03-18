@@ -35,7 +35,7 @@
                     android:layout_height="match_parent"
                     android:fontFamily="@font/settings_button_font"
                     android:textSize="30sp"
-                    android:textColor="@color/settings_text"
+                    android:textColor="@color/et_details"
                     android:gravity="center_vertical"
                     android:text="@string/fragment_reminders_label" />
 
@@ -74,8 +74,12 @@
                 <Button android:id="@+id/addReminderButton"
                         android:layout_height="69dp"
                         android:layout_width="match_parent"
+                        android:textColor="@color/et_details"
+                        android:background="@drawable/background_button"
                         android:fontFamily="@font/julius_sans_one"
+                        android:layout_margin="10dp"
                         android:text="@string/add_reminder"
+                        android:textAllCaps="false"
                         android:textSize="20sp" />
 
             </LinearLayout>

@@ -36,7 +36,7 @@
                     android:layout_weight="10"
                     android:fontFamily="@font/settings_button_font"
                     android:textSize="30sp"
-                    android:textColor="@color/settings_text"
+                    android:textColor="@color/et_details"
                     android:gravity="center_vertical"
                     android:text="@string/fragment_settings_label" />
 
@@ -59,7 +59,8 @@
 
             <ScrollView android:layout_weight="10"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:scrollbars="none">
 
                 <LinearLayout android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -80,7 +81,7 @@
                                     android:layout_weight="5"
                                     android:fontFamily="@font/settings_button_font"
                                     android:textSize="20sp"
-                                    android:textColor="@color/settings_text"
+                                    android:textColor="@color/et_details"
                                     android:gravity="center_vertical"
                                     android:text="@string/enable_notifications_text" />
 
@@ -103,7 +104,7 @@
                                     android:layout_height="match_parent"
                                     android:fontFamily="@font/settings_button_font"
                                     android:textSize="11sp"
-                                    android:textColor="@color/settings_text"
+                                    android:textColor="@color/et_details"
                                     android:gravity="center_vertical"
                                     android:text="@string/enable_notifications_info" />
 
@@ -131,7 +132,7 @@
                                     android:layout_weight="5"
                                     android:fontFamily="@font/settings_button_font"
                                     android:textSize="20sp"
-                                    android:textColor="@color/settings_text"
+                                    android:textColor="@color/et_details"
                                     android:gravity="center_vertical"
                                     android:text="@string/run_in_background_text" />
 
@@ -154,7 +155,7 @@
                                     android:layout_height="match_parent"
                                     android:fontFamily="@font/settings_button_font"
                                     android:textSize="11sp"
-                                    android:textColor="@color/settings_text"
+                                    android:textColor="@color/et_details"
                                     android:gravity="center_vertical"
                                     android:text="@string/run_in_background_info" />
 
@@ -182,7 +183,7 @@
                                     android:layout_weight="5"
                                     android:fontFamily="@font/settings_button_font"
                                     android:textSize="20sp"
-                                    android:textColor="@color/settings_text"
+                                    android:textColor="@color/et_details"
                                     android:gravity="center_vertical"
                                     android:text="@string/enable_dark_mode_text" />
 
@@ -205,7 +206,7 @@
                                     android:layout_height="match_parent"
                                     android:fontFamily="@font/settings_button_font"
                                     android:textSize="11sp"
-                                    android:textColor="@color/settings_text"
+                                    android:textColor="@color/et_details"
                                     android:gravity="center_vertical"
                                     android:text="@string/enable_dark_mode_info" />
 

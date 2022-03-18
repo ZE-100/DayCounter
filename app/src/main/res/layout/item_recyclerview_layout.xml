@@ -4,7 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/recylcerview_item_layout"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
         android:layout_gravity="center"
         card_view:cardBackgroundColor="#00FF0000"
         card_view:cardCornerRadius="10dp"
@@ -37,7 +37,7 @@
                                         android:layout_height="0dp"
                                         android:fontFamily="@font/settings_button_font"
                                         android:textSize="20sp"
-                                        android:textColor="@color/settings_text"
+                                        android:textColor="@color/teal_200"
                                         android:gravity="center_vertical"
                                         android:maxLength="32"
                                         android:padding="5dp"
@@ -49,7 +49,7 @@
                                         android:layout_height="0dp"
                                         android:fontFamily="@font/settings_button_font"
                                         android:textSize="20sp"
-                                        android:textColor="@color/settings_text"
+                                        android:textColor="@color/teal_200"
                                         android:gravity="center_vertical"
                                         android:maxLength="32"
                                         android:padding="5dp"
@@ -59,14 +59,14 @@
 
                 </LinearLayout>
 
-                <TextView android:layout_weight="2"
+                <TextView android:layout_weight="1.5"
                         android:id="@+id/popupDescription"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:padding="15dp"
                         android:fontFamily="@font/settings_button_font"
                         android:textSize="20sp"
-                        android:textColor="@color/settings_text"
+                        android:textColor="@color/teal_200"
                         android:maxLength="90"
                         android:text="Description" />
 
