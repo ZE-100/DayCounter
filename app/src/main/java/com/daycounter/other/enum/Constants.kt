@@ -1,21 +1,16 @@
 package com.daycounter.other.enum
 
-import android.view.View
 import com.daycounter.dataclass.Counter
-import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
 import java.util.*
 
 class Constants {
     companion object Factory {
-        const val DATE_FORMAT = "dd-MM-yyyy"
-        var SDF = SimpleDateFormat(DATE_FORMAT, Locale.GERMANY)
+        var SDF = SimpleDateFormat("dd-MM-yyyy", Locale.GERMANY)
 
         const val USER_PREFERENCES = "user-preferences"
-        const val REMINDERS = "reminders"
         const val ANNIVERSARY_CHANNEL_ID = 1L
         var MAIN_COUNTER: Counter? = null
-        var REMINDER_COUNT: Long = 0
         // Setting preferences
         var ENABLE_NOTIFICATIONS = true
         var ENABLE_BACKGROUND_SERVICES = true
@@ -56,15 +51,6 @@ class ProgressGetter {
             if (days <= 1000) return 1000.0
             if (days <= 3650) return 3650.0
             else return -1.0
-        }
-    }
-}
-
-class Snackbar {
-    companion object Factory {
-        fun displaySnackbar(s: String, view: View) {
-            Snackbar.make(view, s, Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
         }
     }
 }

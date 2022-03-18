@@ -29,16 +29,13 @@ class StartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        updateMainCounter(getCounter())
-
         generateNavBindings()
         generateDefaultBindings()
+
+        updateMainCounter(getCounter())
     }
 
     private fun generateNavBindings() {
-        binding.navigationButtons.gotoStartButton.setTextColor(
-            activity!!.getApplication().getResources().getColor(R.color.nav_btn_focused))
-
         binding.navigationButtons.gotoCountersButton.setOnClickListener {
             findNavController().navigate(R.id.action_start_to_reminders)
         }

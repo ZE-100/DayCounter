@@ -1,7 +1,6 @@
 package com.daycounter.fragment
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,15 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.daycounter.R
-import com.daycounter.dataclass.Reminder
 import com.daycounter.databinding.FragmentRemindersBinding
 import com.daycounter.other.custom.RecyclerViewAdapter
-import java.util.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.daycounter.dataclass.Reminders
-import com.daycounter.other.enum.Constants
-import com.daycounter.other.enum.Preferences
-import com.daycounter.service.data.SaveReminderService
 import com.daycounter.service.data.SaveUserDataService
 
 
@@ -39,9 +33,7 @@ class RemindersFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         generateNavBindings()
-        generateDefaultBindings()
-
-        createRecyclerView()
+        generateReminderBindings()
     }
 
     private fun generateNavBindings() {
@@ -55,18 +47,15 @@ class RemindersFragment : Fragment() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    private fun generateDefaultBindings() {
+    private fun generateReminderBindings() {
         binding.addReminderButton.setOnClickListener {
             binding.remindersRecycleView.adapter!!.notifyDataSetChanged()
             findNavController().navigate(R.id.action_reminders_to_popup)
         }
-    }
 
-    private fun createRecyclerView() {
-        binding.remindersRecycleView.adapter = RecyclerViewAdapter(context, Reminders.getList())
-
-        val linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        binding.remindersRecycleView.layoutManager = linearLayoutManager
+        binding.remindersRecycleView.adapter = RecyclerViewAdapter(context, Reminders.get())
+        binding.remindersRecycleView.layoutManager = LinearLayoutManager(
+            context, LinearLayoutManager.VERTICAL, false)
     }
 
     override fun onDestroyView() {

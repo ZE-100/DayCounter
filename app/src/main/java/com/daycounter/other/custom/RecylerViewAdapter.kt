@@ -19,7 +19,8 @@ class RecyclerViewAdapter(private val context: Context?, remindersIn: List<Remin
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReminderViewHolder {
 
-        val recyclerViewItem: View = inflater.inflate(R.layout.item_recyclerview_layout, parent, false)
+        val recyclerViewItem: View = inflater
+            .inflate(R.layout.item_recyclerview_layout, parent, false)
 
         recyclerViewItem.setOnClickListener {
             v -> onClick(parent as RecyclerView, v, context)

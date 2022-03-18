@@ -19,7 +19,7 @@ class SettingsFragment : Fragment() {
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
 
-    private val handler = SaveUserDataService()
+    private val dataHandler = SaveUserDataService()
     private val notification = CreateNotificationService()
 
     override fun onCreateView(inflater: LayoutInflater,
@@ -33,15 +33,11 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        handler.loadUserData(activity!!.getSharedPreferences(Constants.USER_PREFERENCES, Context.MODE_PRIVATE))
-
         generateNavBindings()
         generateSettingBindings()
     }
 
-    //TODO Do once, include this idk
     private fun generateNavBindings() {
-        //TODO: Change icon colour
         binding.navigationButtons.gotoStartButton.setOnClickListener {
             findNavController().navigate(R.id.action_settings_to_start)
         }
@@ -79,7 +75,7 @@ class SettingsFragment : Fragment() {
             }
             savePreferences()
         }
-        //TODO Implement useless feature
+
         binding.darkModeSwitch.isChecked = Constants.ENABLE_DARKMODE
         binding.darkModeSwitch.setOnCheckedChangeListener {
             _, isChecked -> Constants.ENABLE_DARKMODE = isChecked
@@ -88,9 +84,10 @@ class SettingsFragment : Fragment() {
     }
 
     private fun savePreferences() {
-        handler.saveUserData(this.activity!!.getSharedPreferences(Constants.USER_PREFERENCES, Context.MODE_PRIVATE))
+        dataHandler.saveUserData(this.activity!!.getSharedPreferences(Constants.USER_PREFERENCES, Context.MODE_PRIVATE))
 
     }
+
     private fun sendTestNotification() {
         if (Constants.ENABLE_NOTIFICATIONS)
             notification.new(context!!,  "You did it!", "You just enabled anniversary notifications")

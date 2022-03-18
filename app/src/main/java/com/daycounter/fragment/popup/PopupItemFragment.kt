@@ -1,13 +1,11 @@
 package com.daycounter.fragment.popup
 
 import android.content.Context
-import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.core.widget.doOnTextChanged
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -16,14 +14,11 @@ import com.daycounter.databinding.FragmentPopupItemBinding
 import com.daycounter.dataclass.Reminder
 import com.daycounter.dataclass.Reminders
 import com.daycounter.other.enum.Constants
-import com.daycounter.other.enum.Snackbar
 import com.daycounter.other.enum.Strings
-import com.daycounter.other.enum.TranslationType
 import com.daycounter.service.data.SaveUserDataService
-import com.daycounter.service.date.DateDifferenceService
 import com.daycounter.service.validation.InputDateValidationService
+import com.google.android.material.snackbar.Snackbar
 import java.lang.Exception
-import java.text.SimpleDateFormat
 import java.util.*
 
 class PopupItemFragment : Fragment() {
@@ -62,7 +57,8 @@ class PopupItemFragment : Fragment() {
                 saveReminder(args.itemPos)
                 findNavController().navigate(R.id.action_popup_to_reminders)
             } else {
-                Snackbar.displaySnackbar(Strings.FILL_IN_ALL_FIELDS, view!!)
+                Snackbar.make(view!!, Strings.FILL_IN_ALL_FIELDS, Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
             }
         }
 
@@ -125,7 +121,7 @@ class PopupItemFragment : Fragment() {
         val reminder = if (itemPos == -1)
             Reminder(1, "", "", 3, Date())
         else
-            Reminders.getList()[itemPos]
+            Reminders.get()[itemPos]
 
         try {
             reminder.title = binding.popupTitle.text.toString()
@@ -145,7 +141,7 @@ class PopupItemFragment : Fragment() {
 
     private fun fillInData(itemPos: Int) {
 
-        val reminder = Reminders.getList()[itemPos]
+        val reminder = Reminders.get()[itemPos]
         binding.popupTitle.setText(reminder.title)
         binding.inputDay.setText(String.format("%s", Constants.SDF.format(reminder.dueDate)).substring(0, 2))
         binding.inputMonth.setText(String.format("%s", Constants.SDF.format(reminder.dueDate)).substring(3, 5))

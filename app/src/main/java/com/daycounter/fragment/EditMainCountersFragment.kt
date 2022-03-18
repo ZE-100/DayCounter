@@ -12,10 +12,10 @@ import com.daycounter.R
 import com.daycounter.dataclass.Counter
 import com.daycounter.databinding.FragmentEditCountersBinding
 import com.daycounter.other.enum.Constants
-import com.daycounter.other.enum.Snackbar.Factory.displaySnackbar
 import com.daycounter.other.enum.Strings
 import com.daycounter.service.data.SaveUserDataService
 import com.daycounter.service.validation.InputDateValidationService
+import com.google.android.material.snackbar.Snackbar
 import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
@@ -51,7 +51,8 @@ class EditMainCountersFragment : Fragment() {
                 saveNewMainCounter(binding.inputPersonOne.text.toString(), binding.inputPersonTwo.text.toString(), generateDate())
                 findNavController().navigate(R.id.action_editcounter_to_start)
             } else {
-                displaySnackbar(Strings.FILL_IN_ALL_FIELDS, view!!)
+                Snackbar.make(view!!, Strings.FILL_IN_ALL_FIELDS, Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
             }
         }
 
