@@ -12,6 +12,7 @@ import com.daycounter.databinding.FragmentRemindersBinding
 import com.daycounter.other.custom.RecyclerViewAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.daycounter.dataclass.Reminders
+import com.daycounter.other.enum.Constants
 import com.daycounter.service.data.SaveUserDataService
 
 
@@ -56,6 +57,9 @@ class RemindersFragment : Fragment() {
         binding.remindersRecycleView.adapter = RecyclerViewAdapter(context, Reminders.get())
         binding.remindersRecycleView.layoutManager = LinearLayoutManager(
             context, LinearLayoutManager.VERTICAL, false)
+
+        context!!.stopService(Constants.BACKGROUND_INTENT)
+        context!!.startService(Constants.BACKGROUND_INTENT)
     }
 
     override fun onDestroyView() {

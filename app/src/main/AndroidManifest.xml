@@ -2,8 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
         package="com.daycounter">
 
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
             android:maxSdkVersion="28" />
+
+
 
     <application android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -11,6 +14,17 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.DayCounter">
+
+        <service android:name=".service.background.BackgroundThreadService"
+                android:label="@string/app_name"
+                android:exported="false">
+
+            <intent-filter>
+                <action android:name="com.daycounter.service.background.BackgroundThreadService" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
 
         <activity android:name=".MainActivity"
                 android:exported="true"
@@ -23,6 +37,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data android:name="preloaded_fonts"
                 android:resource="@array/preloaded_fonts" />
     </application>

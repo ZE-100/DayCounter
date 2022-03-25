@@ -7,10 +7,16 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.daycounter.MainActivity
 import com.daycounter.R
+import com.daycounter.other.enum.Constants
 
 class CreateNotificationService {
 
-    fun new(context: Context, notificationTitle: String, notificationText: String) {
+    private val context: Context = Constants.CONTEXT!!
+
+    fun new(notificationTitle: String, notificationText: String, notificationChannel: Int) {
+
+        val channel = if (notificationChannel == 0)
+            R.string.anniversary_channel else R.string.reminders_channel
 
         val intent = Intent(context, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -19,7 +25,7 @@ class CreateNotificationService {
         val pendingIntent: PendingIntent = PendingIntent
             .getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
 
-        val builder = NotificationCompat.Builder(context, context.getString(R.string.anniversary_channel))
+        val builder = NotificationCompat.Builder(context, context.getString(channel))
             .setSmallIcon(R.drawable.notification_icon)
             .setContentTitle(notificationTitle)
             .setContentText(notificationText)
@@ -28,7 +34,7 @@ class CreateNotificationService {
             .setAutoCancel(true)
 
         with(NotificationManagerCompat.from(context)) {
-            notify(R.string.anniversary_channel, builder.build())
+            notify(channel, builder.build())
         }
     }
 }

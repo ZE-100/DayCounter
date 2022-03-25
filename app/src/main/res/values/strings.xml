@@ -23,8 +23,8 @@
     <string name="anniversary_channel">Anniversary Notifications</string>
     <string name="anniversary_channel_desc">Enable notifications for your anniversaries</string>
 
-    <string name="constant_channel">Display status</string>
-    <string name="constant_channel_desc">Enable constant silent notification, which displays your current status</string>
+    <string name="reminders_channel">Reminder Notifications</string>
+    <string name="reminders_channel_desc">Enable notifications for your anniversaries</string>
 
     <!-- Change main counter -->
     <string name="input_name_person_one">Name of you</string>
@@ -38,6 +38,12 @@
     <string name="run_in_background_info">Needed in order to calculate certain dates!</string>
     <string name="enable_dark_mode_text">Switch light/dark theme</string>
     <string name="enable_dark_mode_info">Change the applications appearance!</string>
+    <string name="backup_text">Backup your data</string>
+    <string name="backup_info">Feature will be implemented eventually</string>
+    <string name="rate_app_text">Rate the app</string>
+    <string name="rate_app_info">You can rate this app via E-Mail</string>
+    <string name="support_text">Support</string>
+    <string name="support_info">Do you need help? Send an E-Mail!</string>
 
     <!-- Misc buttons -->
     <string name="add_reminder">Add Reminder</string>
@@ -48,4 +54,7 @@
     <string name="cancel_text">Cancel</string>
     <string name="description_text">Write a description for your reminder</string>
     <string name="title_text">Enter a title</string>
+    <string name="gay_mode_text">Enable Gay Mode</string>
+    <string name="gaymode_info">Support da priiidddeeeee</string>
+
 </resources>

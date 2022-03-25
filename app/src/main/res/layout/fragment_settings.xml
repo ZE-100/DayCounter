@@ -219,54 +219,217 @@
 
                     </LinearLayout>
 
-                    <Button android:id="@+id/wallpaperButton"
+                    <!-- Support -->
+                    <LinearLayout android:layout_width="match_parent"
                             android:layout_height="69dp"
-                            android:layout_width="match_parent"
-                            android:fontFamily="@font/julius_sans_one"
-                            android:text="Change background image"
-                            android:textSize="20sp" />
+                            android:orientation="vertical">
 
-                    <Button android:id="@+id/fontButton"
-                            android:layout_height="69dp"
-                            android:layout_width="match_parent"
-                            android:fontFamily="@font/julius_sans_one"
-                            android:text="Change the font"
-                            android:textSize="20sp" />
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2">
 
-                    <Button android:id="@+id/colourButton"
-                            android:layout_height="69dp"
-                            android:layout_width="match_parent"
-                            android:fontFamily="@font/julius_sans_one"
-                            android:text="Text colour"
-                            android:textSize="20sp" />
+                            <TextView android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="5"
+                                    android:fontFamily="@font/settings_button_font"
+                                    android:textSize="20sp"
+                                    android:textColor="@color/et_details"
+                                    android:gravity="center_vertical"
+                                    android:text="@string/support_text" />
 
-                    <Button android:id="@+id/themeButton"
-                            android:layout_height="69dp"
-                            android:layout_width="match_parent"
-                            android:fontFamily="@font/julius_sans_one"
-                            android:text="Theme"
-                            android:textSize="20sp" />
 
-                    <Button android:id="@+id/supportButton"
-                            android:layout_height="69dp"
-                            android:layout_width="match_parent"
-                            android:fontFamily="@font/julius_sans_one"
-                            android:text="Support"
-                            android:textSize="20sp" />
+                            <Button android:id="@+id/supportButton"
+                                    android:layout_height="match_parent"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:theme="@style/SCBSwitch"
+                                    android:textSize="20sp"
+                                    app:icon="@drawable/support_icon"
+                                    style="?android:attr/buttonBarButtonStyle" />
+                        </LinearLayout>
 
-                    <Button android:id="@+id/rateButton"
-                            android:layout_height="69dp"
-                            android:layout_width="match_parent"
-                            android:fontFamily="@font/julius_sans_one"
-                            android:text="Rate the app"
-                            android:textSize="20sp" />
+                        <LinearLayout android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
 
-                    <Button android:id="@+id/backupButton"
+                            <TextView android:layout_weight="4"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/settings_button_font"
+                                    android:textSize="11sp"
+                                    android:textColor="@color/et_details"
+                                    android:gravity="center_vertical"
+                                    android:text="@string/support_info"/>
+
+                            <!-- Placeholder -->
+                            <LinearLayout android:layout_weight="1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout android:layout_width="match_parent"
                             android:layout_height="69dp"
+                            android:orientation="vertical">
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2">
+
+                            <TextView android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="5"
+                                    android:fontFamily="@font/settings_button_font"
+                                    android:textSize="20sp"
+                                    android:textColor="@color/et_details"
+                                    android:gravity="center_vertical"
+                                    android:text="@string/rate_app_text" />
+
+
+                            <Button android:id="@+id/rateAppButton"
+                                    android:layout_height="match_parent"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:theme="@style/SCBSwitch"
+                                    android:textSize="20sp"
+                                    app:icon="@drawable/rate_app_icon"
+                                    style="?android:attr/buttonBarButtonStyle" />
+                        </LinearLayout>
+
+                        <LinearLayout android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                            <TextView android:layout_weight="4"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/settings_button_font"
+                                    android:textSize="11sp"
+                                    android:textColor="@color/et_details"
+                                    android:gravity="center_vertical"
+                                    android:text="@string/rate_app_info"/>
+
+                            <!-- Placeholder -->
+                            <LinearLayout android:layout_weight="1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent"
+                            android:layout_height="69dp"
+                            android:orientation="vertical">
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2">
+
+                            <TextView android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="5"
+                                    android:fontFamily="@font/settings_button_font"
+                                    android:textSize="20sp"
+                                    android:textColor="@color/et_details"
+                                    android:gravity="center_vertical"
+                                    android:text="@string/backup_text" />
+
+
+                            <Button android:id="@+id/backupButton"
+                                    android:layout_height="match_parent"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:theme="@style/SCBSwitch"
+                                    android:textSize="20sp"
+                                    app:icon="@drawable/backup_icon"
+                                    style="?android:attr/buttonBarButtonStyle" />
+                        </LinearLayout>
+
+                        <LinearLayout android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                            <TextView android:layout_weight="4"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/settings_button_font"
+                                    android:textSize="11sp"
+                                    android:textColor="@color/et_details"
+                                    android:gravity="center_vertical"
+                                    android:text="@string/backup_info"/>
+
+                            <!-- Placeholder -->
+                            <LinearLayout android:layout_weight="1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout android:id="@+id/gayModePanel"
                             android:layout_width="match_parent"
-                            android:fontFamily="@font/julius_sans_one"
-                            android:text="Backup / Restore"
-                            android:textSize="20sp" />
+                            android:layout_height="69dp"
+                            android:visibility="invisible"
+                            android:orientation="vertical">
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2">
+
+                            <TextView android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="5"
+                                    android:fontFamily="@font/settings_button_font"
+                                    android:textSize="20sp"
+                                    android:textColor="@color/et_details"
+                                    android:gravity="center_vertical"
+                                    android:text="@string/gay_mode_text" />
+
+
+                            <Switch android:id="@+id/gaymodeSwitch"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:checked="true"
+                                    android:theme="@style/SCBSwitch"
+                                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+                        </LinearLayout>
+
+                        <LinearLayout android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                            <TextView android:layout_weight="4"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/settings_button_font"
+                                    android:textSize="11sp"
+                                    android:textColor="@color/et_details"
+                                    android:gravity="center_vertical"
+                                    android:text="@string/gaymode_info"/>
+
+                            <!-- Placeholder -->
+                            <LinearLayout android:layout_weight="1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
 

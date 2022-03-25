@@ -13,7 +13,9 @@ import com.daycounter.dataclass.Counter
 import com.daycounter.databinding.FragmentEditCountersBinding
 import com.daycounter.other.enum.Constants
 import com.daycounter.other.enum.Strings
+import com.daycounter.other.enum.TranslationType
 import com.daycounter.service.data.SaveUserDataService
+import com.daycounter.service.date.DateDifferenceService
 import com.daycounter.service.validation.InputDateValidationService
 import com.google.android.material.snackbar.Snackbar
 import java.lang.Exception
@@ -130,12 +132,20 @@ class EditMainCountersFragment : Fragment() {
     private fun saveNewMainCounter(personOne: String?, personTwo: String?, date: String?) {
 
         val handler = SaveUserDataService()
+        val dateDiff = DateDifferenceService()
 
         Constants.MAIN_COUNTER = try {
-            if (personOne != "")
-                Counter(personOne, personTwo, Constants.SDF.parse(date!!))
-            else //Test data
-                Counter("Person One", "Person Two", Constants.SDF.parse("27-12-2019-00-00-00"))
+            if (personOne != "") {
+                val date = Constants.SDF.parse(date!!)
+
+                Counter(personOne, personTwo, date,
+                    dateDiff.getDateDifference(date, TranslationType.DAYS))
+            } else {
+                val testDate = Constants.SDF.parse("27-12-2019-00-00-00")
+
+                Counter("Person One", "Person Two", testDate,
+                    dateDiff.getDateDifference(testDate, TranslationType.DAYS))
+            }
         } catch (e: Exception) {
             e.printStackTrace()
             null

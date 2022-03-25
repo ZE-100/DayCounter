@@ -54,7 +54,13 @@ class StartFragment : Fragment() {
             findNavController().navigate(R.id.action_start_to_editcounters)
         }
 
+        binding.soButton.setOnClickListener {
+            easterEggCount++
 
+            if (binding.personTwo.text.equals("Marvin") && easterEggCount == 5)
+                Snackbar.make(view!!, Strings.EASTER_EGG, Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
+        }
     }
 
     private fun getCounter(): Counter? {
@@ -66,10 +72,8 @@ class StartFragment : Fragment() {
     }
 
     private fun updateMainCounter(mainCounter: Counter?) {
-        val dateDiff = DateDifferenceService()
-
-        val days = dateDiff.getDateDifference(mainCounter?.startDate, TranslationType.DAYS)
-        val progress = (100 / ProgressGetter.get(days)) * days
+        val days = mainCounter!!.dateDiff
+        val progress = (100 / ProgressGetter.get(days!!)) * days
 
         binding.progressCircle.progress = progress.toInt()
         binding.progressText.text = String.format("%s Days", days)
@@ -79,6 +83,9 @@ class StartFragment : Fragment() {
 
         binding.personOne.text = mainCounter?.personOne
         binding.personTwo.text = mainCounter?.personTwo
+
+        context!!.stopService(Constants.BACKGROUND_INTENT)
+        context!!.startService(Constants.BACKGROUND_INTENT)
     }
 
     override fun onDestroyView() {

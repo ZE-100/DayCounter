@@ -6,4 +6,5 @@ data class Counter(
     var personOne: String?,
     var personTwo: String?,
     var startDate: Date?,
+    var dateDiff: Long?,
 )

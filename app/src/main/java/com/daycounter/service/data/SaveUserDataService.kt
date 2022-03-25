@@ -20,12 +20,15 @@ class SaveUserDataService {
                     putString(Preferences.PERSON_ONE, Constants.MAIN_COUNTER?.personOne)
                     putString(Preferences.PERSON_TWO, Constants.MAIN_COUNTER?.personTwo)
                     putString(Preferences.DATE_ONE, Constants.SDF.format(Constants.MAIN_COUNTER?.startDate!!))
+                    putLong(Preferences.DATE_DIFF, Constants.MAIN_COUNTER?.dateDiff!!)
 
                     putString(Preferences.REMINDERS_LIST, reminderHandler.setList(Reminders.get()))
 
                     putBoolean(Preferences.ENABLE_NOTIFICATIONS, Constants.ENABLE_NOTIFICATIONS)
                     putBoolean(Preferences.ENABLE_BACKGROUND_SERVICES, Constants.ENABLE_BACKGROUND_SERVICES)
                     putBoolean(Preferences.ENABLE_DARKMODE, Constants.ENABLE_DARKMODE)
+                    putBoolean(Preferences.GAY_THEME_ENABLED, Constants.GAY_THEME_ENABLED)
+                    putBoolean(Preferences.GAY_SWITCH_ENABLED, Constants.GAY_SWITCH_ENABLED)
                 }.apply()
 
         return sharedPref.getString(Preferences.PERSON_ONE, null) != null
@@ -37,15 +40,18 @@ class SaveUserDataService {
             val personOne = sharedPref.getString(Preferences.PERSON_ONE, null)
             val personTwo = sharedPref.getString(Preferences.PERSON_TWO, null)
             val startDate = Constants.SDF.parse(sharedPref.getString(Preferences.DATE_ONE, null)!!)
+            val dateDiff = sharedPref.getLong(Preferences.DATE_DIFF, 0L)
 
             Reminders.set(reminderHandler.getList(sharedPref.getString(Preferences.REMINDERS_LIST, null)))
 
             Constants.ENABLE_NOTIFICATIONS = sharedPref.getBoolean(Preferences.ENABLE_NOTIFICATIONS, true)
             Constants.ENABLE_BACKGROUND_SERVICES = sharedPref.getBoolean(Preferences.ENABLE_BACKGROUND_SERVICES, true)
             Constants.ENABLE_DARKMODE = sharedPref.getBoolean(Preferences.ENABLE_DARKMODE, true)
+            Constants.GAY_SWITCH_ENABLED = sharedPref.getBoolean(Preferences.GAY_SWITCH_ENABLED, false)
+            Constants.GAY_THEME_ENABLED = sharedPref.getBoolean(Preferences.GAY_THEME_ENABLED, false)
 
             if (personOne != null && personTwo != null)
-                 Counter(personOne, personTwo, startDate) else null
+                 Counter(personOne, personTwo, startDate, dateDiff) else null
 
         } catch (e: Exception) {
             e.printStackTrace()

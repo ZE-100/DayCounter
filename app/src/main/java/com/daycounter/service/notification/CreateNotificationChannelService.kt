@@ -23,13 +23,13 @@ class CreateNotificationChannelService {
         }
     }
 
-    fun createConstantChannel(context: Context) {
+    fun createRemindersChannel(context: Context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = context.getString(R.string.constant_channel)
-            val descriptionText = context.getString(R.string.constant_channel_desc)
+            val name = context.getString(R.string.reminders_channel)
+            val descriptionText = context.getString(R.string.reminders_channel_desc)
             val importance = NotificationManager.IMPORTANCE_LOW
 
-            val mChannel = NotificationChannel(context.getString(R.string.constant_channel), name, importance)
+            val mChannel = NotificationChannel(context.getString(R.string.reminders_channel), name, importance)
             mChannel.description = descriptionText
 
             val notificationManager = context.getSystemService(AppCompatActivity.NOTIFICATION_SERVICE) as NotificationManager
