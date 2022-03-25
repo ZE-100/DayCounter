@@ -18,6 +18,7 @@
                         android:layout_marginStart="@dimen/navigation_button_margin_start"
                         android:layout_marginEnd="@dimen/navigation_button_margin_end"
                         android:layout_marginTop="@dimen/navigation_button_margin_top"
+                        android:theme="@style/SCBSwitch"
                         app:icon="@drawable/note_icon"
                         app:iconGravity="textStart"
                         style="?android:attr/buttonBarButtonStyle"/>
@@ -40,6 +41,7 @@
                 <Button android:id="@+id/gotoSettingsButton"
                         android:layout_weight="@dimen/navigation_button_weight_1"
                         android:layout_width="@dimen/navigation_button_width"
+                        android:theme="@style/SCBSwitch"
                         android:layout_height="@dimen/navigation_button_height"
                         android:layout_marginBottom="@dimen/navigation_button_margin_bottom"
                         android:layout_marginStart="@dimen/navigation_button_margin_start"
