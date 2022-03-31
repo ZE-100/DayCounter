@@ -12,9 +12,9 @@ import com.daycounter.databinding.FragmentStartBinding
 import com.daycounter.other.enum.Constants
 import com.daycounter.other.enum.ProgressGetter
 import com.daycounter.other.enum.Strings
-import com.daycounter.other.enum.TranslationType
-import com.daycounter.service.date.DateDifferenceService
 import com.google.android.material.snackbar.Snackbar
+import java.lang.Exception
+import java.util.*
 
 class StartFragment : Fragment() {
 
@@ -36,7 +36,11 @@ class StartFragment : Fragment() {
         generateNavBindings()
         generateDefaultBindings()
 
-        updateMainCounter(getCounter())
+
+        val counter = getCounter()
+        if (checkForNullValues(counter))
+            findNavController().navigate(R.id.action_start_to_editcounters)
+        else updateMainCounter(counter)
     }
 
     private fun generateNavBindings() {
@@ -63,16 +67,17 @@ class StartFragment : Fragment() {
         }
     }
 
-    private fun getCounter(): Counter? {
-        if (Constants.MAIN_COUNTER != null)
-            return Constants.MAIN_COUNTER!!
-        else
-            findNavController().navigate(R.id.action_start_to_editcounters)
-        return null
+    private fun getCounter(): Counter {
+        return try {
+            Constants.MAIN_COUNTER!!
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Counter("null", "null", null, -1L)
+        }
     }
 
-    private fun updateMainCounter(mainCounter: Counter?) {
-        val days = mainCounter!!.dateDiff
+    private fun updateMainCounter(mainCounter: Counter) {
+        val days = mainCounter.dateDiff
         val progress = (100 / ProgressGetter.get(days!!)) * days
 
         binding.progressCircle.progress = progress.toInt()
@@ -81,11 +86,17 @@ class StartFragment : Fragment() {
         if (days > 100000)
             binding.progressText.textSize = 45F
 
-        binding.personOne.text = mainCounter?.personOne
-        binding.personTwo.text = mainCounter?.personTwo
+        binding.personOne.text = mainCounter.personOne
+        binding.personTwo.text = mainCounter.personTwo
 
         context!!.stopService(Constants.BACKGROUND_INTENT)
         context!!.startService(Constants.BACKGROUND_INTENT)
+    }
+
+    private fun checkForNullValues(mainCounter: Counter): Boolean {
+        return mainCounter.personOne.equals("null")
+                && mainCounter.personTwo.equals("null")
+                && mainCounter.dateDiff == -1L
     }
 
     override fun onDestroyView() {

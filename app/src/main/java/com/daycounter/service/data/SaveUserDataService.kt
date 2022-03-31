@@ -39,10 +39,13 @@ class SaveUserDataService {
 
             val personOne = sharedPref.getString(Preferences.PERSON_ONE, null)
             val personTwo = sharedPref.getString(Preferences.PERSON_TWO, null)
-            val startDate = Constants.SDF.parse(sharedPref.getString(Preferences.DATE_ONE, null)!!)
-            val dateDiff = sharedPref.getLong(Preferences.DATE_DIFF, 0L)
+            val startDateString = sharedPref.getString(Preferences.DATE_ONE, null)
+            val dateDiff = sharedPref.getLong(Preferences.DATE_DIFF, -1L)
 
-            Reminders.set(reminderHandler.getList(sharedPref.getString(Preferences.REMINDERS_LIST, null)))
+            val remindersString = sharedPref.getString(Preferences.REMINDERS_LIST, null)
+
+            if (remindersString != null)
+                Reminders.set(reminderHandler.getList(remindersString))
 
             Constants.ENABLE_NOTIFICATIONS = sharedPref.getBoolean(Preferences.ENABLE_NOTIFICATIONS, true)
             Constants.ENABLE_BACKGROUND_SERVICES = sharedPref.getBoolean(Preferences.ENABLE_BACKGROUND_SERVICES, true)
@@ -50,9 +53,10 @@ class SaveUserDataService {
             Constants.GAY_SWITCH_ENABLED = sharedPref.getBoolean(Preferences.GAY_SWITCH_ENABLED, false)
             Constants.GAY_THEME_ENABLED = sharedPref.getBoolean(Preferences.GAY_THEME_ENABLED, false)
 
-            if (personOne != null && personTwo != null)
-                 Counter(personOne, personTwo, startDate, dateDiff) else null
+            if (personOne == null || personTwo == null || startDateString == null || dateDiff == -1L)
+                null
 
+            Counter(personOne, personTwo, Constants.SDF.parse(startDateString!!), dateDiff)
         } catch (e: Exception) {
             e.printStackTrace()
             null
