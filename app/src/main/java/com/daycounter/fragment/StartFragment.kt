@@ -61,7 +61,7 @@ class StartFragment : Fragment() {
         binding.soButton.setOnClickListener {
             easterEggCount++
 
-            if (binding.personTwo.text.equals("Marvin") && easterEggCount == 5)
+            if (binding.personTwo.text.equals("Easteregg") && easterEggCount == 5)
                 Snackbar.make(view!!, Strings.EASTER_EGG, Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
